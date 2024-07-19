@@ -156,7 +156,7 @@ def modifyTrattativa(id):
         print("rip")
         print(error)
         print(error.__cause__)
-        conn.rollback()
+        #conn.rollback()
 
 
     return redirect(url_for('.home', id = current_user.idPort))
@@ -171,7 +171,7 @@ def removeTrattativa(id):
         conn.execute(delete(trattativa).where(trattativa.c.idtrattativa == id))
         conn.execute(delete(trattativaappuntamento).where(trattativaappuntamento.c.idtrattativa == id))
     except Exception as error:
-        conn.rollback()
+        #conn.rollback()
         print("rip")
         print(error)
         print(error.__cause__)   

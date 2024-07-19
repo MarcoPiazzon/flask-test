@@ -33,9 +33,9 @@ class User(UserMixin):
     def __init__(self,id,email) -> None:
         self.id=id
         self.email=email
-        self.idPort = 0
+        self.idport = 0
         res =conn.execute(select(utente.c.nome, utente.c.cognome).where(utente.c.email==email)).fetchone()._asdict()
-        print("sono qua")
+	
         res2 = conn.execute(select(portafoglio.c.idportafoglio).where(portafoglio.c.idutente == id).order_by(portafoglio.c.idportafoglio.desc())).fetchone()[0]
         print(res2)
         if not (res2 is None):
