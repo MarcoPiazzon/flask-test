@@ -1,0 +1,422 @@
+{% extends "header.html"%}
+{% block title %}Calendario{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.14/index.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.14/index.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  .event {
+      //shared event css
+  }
+  
+  .greenEvent {
+      background-color:#00FF00;
+  }
+  
+  .redEvent {
+      background-color:#FF0000;
+  }
+
+  </style>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'it',
+      headerToolbar: {
+        left: 'prev,today,next',
+        center: 'title',
+        right: 'dayGridYear,dayGridMonth,dayGridWeek,dayGridDay'
+      },
+      aspectRatio: 4,
+      buttonIcons: true,
+      navLinks: true,
+      height: 600,
+      events: [
+        {% for event in events %}
+          {
+            title: '{{event.titolo}}',
+            start: '{{event.dataapp}}',
+            end: '{{event.dataapp}}',
+            extendedProps: {
+              description: '{{event.variediscussioni}}',
+              preventivodafare: '{{event.preventivodafare}}',
+              dataapp : '{{event.dataapp}}',
+              idappuntamento: '{{event.idappuntamento}}',
+              idutentecreazione: '{{event.idutentecreazione}}',
+              nome: '{{event.nome}}',
+              cognome: '{{event.cognome}}',
+              idtrattativa: '{{event.idtrattativa}}',
+              nomeopportunita: '{{event.nomeopportunita}}'
+            },
+            rendering: 'background'
+          },
+        
+        {% endfor %}
+      ],
+      eventClick: function (info) {
+        info.jsEvent.preventDefault(); // don't let the browser navigate
+        console.log(info.event.extendedProps);
+        document.getElementById("modifica").style.display = "block";
+        document.getElementById("crea").style.display = "none";
+        document.getElementById("title").value = info.event.title;
+        if (info.event.extendedProps) {
+          document.getElementById("userCreator").innerHTML = "Evento creato da " + info.event.extendedProps.nome + " " + info.event.extendedProps.cognome;
+          document.getElementById("idapp").value = info.event.extendedProps.idappuntamento;
+          document.getElementById("description").value = info.event.extendedProps.description;
+          document.getElementById("preventivoDaFare").value = info.event.extendedProps.preventivodafare;
+          document.getElementById("dataApp").value = info.event.extendedProps.dataapp;
+          document.getElementById("idUtenteCreazione").value = info.event.extendedProps.idUtentecreazione;
+          
+          if(info.event.extendedProps.idtrattativa != "None" && info.event.extendedProps.nomeopportunita != "None"){
+            document.getElementById("idtrattativa").value = info.event.extendedProps.idtrattativa;
+          document.getElementById("myInputModify").value = info.event.extendedProps.nomeopportunita;
+  
+          }
+        } else {
+          alert("non esiste");
+        }
+      }
+        });
+  calendar.render();
+  /*console.log(document.getElementsByClassName("fc-toolbar-chunk"));
+        getButtons = document.getElementsByClassName("fc-toolbar-chunk");
+        console.log(getButtons[0].children[0].children[1].innerHTML = "Oggi")
+        getButtons[2].children[0].children[0].innerHTML = "Anno"
+        getButtons[2].children[0].children[1].innerHTML = "Mese"
+        getButtons[2].children[0].children[2].innerHTML = "Settimana"
+        getButtons[2].children[0].children[3].innerHTML = "Giorno"*/
+});
+
+
+
+</script>
+
+<style>
+  .myUL {
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 200px;
+  }
+
+
+  .hiddenRow {
+    padding: 0 !important;
+  }
+</style>
+
+<div class="page-holder bg-gray-100">
+  <div class="container-fluid px-lg-4 px-xl-5">
+    <!-- Page Header-->
+    <div class="page-header">
+      <h1 class="page-heading">Calendario</h1>
+    </div>
+    <section class="mb-3 mb-lg-5">
+
+      <div class="row">
+        <div class="container px-4 mt-4">
+          <div id='calendar'></div>
+        </div>
+      </div>
+      <div class="row" id="modifica" style="display: none;">
+        <div class="container px-4 mt-4">
+
+          <!-- Account details card-->
+          <div class="card mb-4">
+            <div class="card-header" id="userCreator"></div>
+            <div class="card-body">
+              <form action="/calendario/modify" method="POST">
+
+                <input type="hidden" name="idapp" id="idapp" value="">
+                <div class="mb-3">
+                  <input class="form-control" name="idUtenteCreazione" id="idUtenteCreazione" type="hidden"
+                    placeholder="Enter your username" value="">
+                  <input class="form-control" name="idTrattivaGet" id="idTrattivaGet" type="hidden"
+                    placeholder="Enter your username" value="">
+                </div>
+                <!-- Form Group (username)-->
+                <div class="mb-3">
+                  <label class="small mb-1" for="inputUsername">Titolo</label>
+                  <input class="form-control" name="titolo" id="title" type="text" placeholder="Enter your username"
+                    value="">
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (first name)-->
+                  <div class="col">
+                    <label class="small mb-1" for="inputFirstName">Varie discussioni</label>
+                    <textarea class="form-control" name="varieDiscussioni" id="description" rows="3"></textarea>
+                  </div>
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (first name)-->
+                  <div class="col">
+                    <label class="small mb-1" for="inputFirstName">Preventivo da fare</label>
+                    <textarea class="form-control" name="preventivoDaFare" id="preventivoDaFare" rows="3"></textarea>
+                  </div>
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                  <input type="hidden" name="idtrattativa" id="idtrattativa" value="">
+                  <!-- Form Group (first name)-->
+                  <label class="small mb-1" for="inputFirstName">Trattativa assocciata</label>
+                  <div class="col">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" id="myInputModify" onkeyup="myFunction(this,0)"
+                              onclick="showUp(this,0)" placeholder="Search for names.." title="Type in a name">
+                      </div>
+                  </div>
+                    
+                    <ul id="myULModify" class="myUL vertical-scrollable list-group">
+                      {% if trattative%}
+                      {% for t in trattative%}
+                      <li class="list-group-item"
+                        onclick="getTrattativa(this,'{{t.idtrattativa}}',0)">{{t.nomeopportunita}}</li>
+                      {% endfor %}
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-4">
+                    <label class="small mb-1" for="inputBirthday">Date</label>
+                    <input class="form-control" name="dataApp" id="dataApp" type="datetime-local" name="birthday"
+                      placeholder="Enter your birthday" value="">
+                  </div>
+                </div>
+                <!-- Save changes button-->
+                <button class="btn btn-primary" type="submit">Salva le modifiche</button>
+                <button class="btn btn-primary" type="button" id="btnElimina" onclick="elimina()">Elimina appuntamento</button>
+                <button class="btn btn-primary" type="button" id="btnCrea" onclick="crea()" style="float: right;">Aggiungi
+                  appuntamento</button>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="row" id="crea">
+        <div class="container px-4 mt-4">
+
+          <!-- Account details card-->
+          <div class="card mb-4">
+            <div class="card-header">Aggiungi un appuntamento</div>
+            <div class="card-body">
+              <form action="/calendario/add" method="POST">
+                <input type="hidden" name="idapp" id="idapp" value="">
+                <input type="hidden" name="idUtenteCreazione" value="{{current_user.get_id()}}">
+                <!-- Form Group (username)-->
+                <div class="mb-3">
+                  <label class="small mb-1" for="inputUsername">Titolo</label>
+                  <input class="form-control ls" name="titolo" id="title" type="text" placeholder="Enter your username"
+                    value="" required>
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (first name)-->
+                  <div class="col">
+                    <label class="small mb-1" for="inputFirstName">Varie discussioni</label>
+                    <textarea class="form-control ls" name="varieDiscussioni" id="description" rows="3"></textarea>
+                  </div>
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (first name)-->
+                  <div class="col">
+                    <label class="small mb-1" for="inputFirstName">Preventivo da fare</label>
+                    <textarea class="form-control ls" name="preventivoDaFare" id="preventivoDaFare" rows="3"></textarea>
+                  </div>
+                </div>
+                <!-- Form Row        -->
+                <div class="row gx-3 mb-3">
+                  <input type="hidden" name="idtrattativaAdd" id="idtrattativaAdd" value="">
+                  <!-- Form Group (first name)-->
+                  <label class="small mb-1" for="inputFirstName">Trattativa assocciata</label>
+                  <div class="col">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" id="myInputAdd" onkeyup="myFunction(this,1)"
+                              onclick="showUp(this,1)" placeholder="Search for names.." title="Type in a name" required>
+                      </div>
+                  </div>
+                    
+                    <ul id="myULAdd" class="myUL vertical-scrollable list-group">
+                      {% if trattative%}
+                      {% for t in trattative%}
+                      <li class="list-group-item"
+                        onclick="getTrattativa(this,'{{t.idtrattativa}}',1)">{{t.nomeopportunita}}</li>
+                      {% endfor %}
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-4">
+                    <label class="small mb-1" for="inputBirthday">Date</label>
+                    <input class="form-control ls" name="dataApp" id="dataAppAdd" type="datetime-local" name="birthday"
+                      placeholder="Enter your birthday" value="" required>
+                  </div>
+                </div>
+                <!-- Save changes button-->
+                <button class="btn btn-primary" type="submit" id="submitAppuntamento">Crea appuntamento</button>
+                <button class="btn btn-primary" type="button" id="cleanForm">Cancella tutto</button>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start fw-bold">
+          <p class="mb-2 mb-md-0 fw-bold">Your company © 2023</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end text-gray-400">
+          <p class="mb-0">Version 1.3.2</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+{% if message %}
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 20000;">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">{{titolo}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{message}}
+    </div>
+  </div>
+</div>
+{%endif%}
+
+
+
+
+
+<script>
+  const toastLiveExample = document.getElementById('liveToast');
+  const toast = new bootstrap.Toast(toastLiveExample);
+  toast.show();
+
+  obj = document.getElementsByClassName("ls")
+  for (let item of obj) {
+
+    item.addEventListener("change", function () {
+      localStorage.setItem("add" + item.id, item.value);
+    })
+  }
+
+  for (let item of obj) {
+    item.value = localStorage.getItem("add" + item.id);
+  }
+
+  document.getElementById("cleanForm").addEventListener("click", function () {
+    for (let item of obj) {
+      item.value = "";
+    }
+  })
+
+
+
+  function getTrattativa(el, id, s) {
+    
+    console.log(el);
+
+    switch (s) {
+      case 0:
+        alert(id)
+        document.getElementById("idtrattativa").value = id;
+        console.log(document.getElementById("idtrattativa"));
+        document.getElementById("myInputModify").value = el.innerHTML;
+        document.getElementById("myULModify").style.display = "none";
+        break;
+      case 1:
+        alert(id)
+        document.getElementById("myInputAdd").value = el.innerHTML;
+        document.getElementById("myULAdd").style.display = "none";
+        document.getElementById("idtrattativaAdd").value = id;
+        console.log(document.getElementById("idtrattativaAdd"));
+        break;
+    }
+
+  }
+
+  function crea(){
+    document.getElementById("modifica").style.display = "none";
+    document.getElementById("crea").style.display = "block";
+  }
+
+  function elimina(){
+    Swal.fire({
+      title: "Sei sicuro?",
+      text: "Una volta eliminata, non potrà essere ripristinata!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Elimina",
+      cancelButtonText: 'Indietro'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var xhr = new XMLHttpRequest();
+        val = document.getElementById("idapp").value;
+        xhr.open("POST", '/calendario/remove/' + val, true);
+        xhr.send();
+        location.reload();
+      }
+    });
+  }
+
+</script>
+
+<script>
+      function showUp(el,s) {
+        el.value = "";
+        name = "myUL"
+        if(s === 0) name += "Modify"; else name += "Add"
+        document.getElementById(name).style.display = "block";
+    }
+
+    function myFunction(el, s) {
+      name = "myUL"
+      if(s === 0)
+        name += "Modify"
+      else 
+        name += "Add" 
+      var input, filter, ul, li, i, txtValue;
+        filter = el.value.toUpperCase();
+        console.log(name)
+        ul = document.getElementById(name);
+
+        input = ul.getElementsByTagName("li");
+        for (i = 0; i < input.length; i++) {
+
+            txtValue = input[i].innerHTML;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                input[i].style.display = "";
+            } else {
+                input[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+
+{%endblock%}
