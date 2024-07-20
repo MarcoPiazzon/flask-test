@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-engine = create_engine(os.getenv('DB_LINK'))
+engine = create_engine(os.getenv('DB_LINK'),future="True")
 metadata=MetaData()
 conn=engine.connect()
 
