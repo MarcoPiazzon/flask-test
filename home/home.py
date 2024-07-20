@@ -185,7 +185,7 @@ def addPortafoglio():
 
         newid = res.inserted_primary_key[0]
         
-        current_user.idPort = newid
+        current_user.idport = newid
         #print("test della vita")
         print("test id")
         print(newid)

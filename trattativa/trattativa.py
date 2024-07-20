@@ -162,14 +162,14 @@ def modifyTrattativa(id):
         #conn.rollback()
 
 
-    return redirect(url_for('.home', id = current_user.idPort))
+    return redirect(url_for('.home', id = current_user.idport))
 
 
 @trattativa_bp.route('/delete/<int:id>', methods=['POST'])
 @login_required
 def removeTrattativa(id):
     print("REMOVE TRATTATIVA")
-    print(current_user.idPort)
+    print(current_user.idport)
     try:
         conn.execute(delete(trattativa).where(trattativa.c.idtrattativa == id))
         conn.execute(delete(trattativaappuntamento).where(trattativaappuntamento.c.idtrattativa == id))
@@ -179,4 +179,4 @@ def removeTrattativa(id):
         print(error)
         print(error.__cause__)   
     
-    return redirect(url_for('.home',id = current_user.idPort))
+    return redirect(url_for('.home',id = current_user.idport))

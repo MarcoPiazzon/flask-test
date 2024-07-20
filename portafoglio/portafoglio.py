@@ -18,15 +18,15 @@ titolo = ""
 @login_required
 def home(idPort, id):
     print("dentro home portafoglio")
-    print(idPort)
+    print(idport)
     print(id)
     print(current_user.idport)
-    print(type(idPort))
+    print(type(idport))
     print(type(id))
     print(id is None)
-    if(idPort == 0):
+    if(idport == 0):
         return render_template("home/home.html")
-    current_user.idPort = idPort
+    current_user.idport = idPort
     clienti = None
     current_cliente = None
     trattative = None 
@@ -99,7 +99,7 @@ def getCliente():
     #print(request.form)
     idPort = request.form['idPort']
     id=request.form['idSearch']
-    current_user.idPort = idPort
+    current_user.idport = idPort
     return redirect(url_for('.home',idPort = idPort, id = id))
 
 @portafoglio_bp.route('/remove/<int:id>', methods=['POST'])
@@ -124,7 +124,7 @@ def removeTrattativa(id):
         print(error.__cause__)
         conn.rollback()
     
-    return home(current_user.idPort, getIdCliente)
+    return home(current_user.idport, getIdCliente)
 
 @portafoglio_bp.route('/removeCliente/<int:id>', methods=['POST'])
 @login_required
@@ -158,7 +158,7 @@ def removeCliente(id):
     #Cancello clienti
     conn.execute(delete(cliente).where(cliente.c.idcliente == id))
     print("HO FATTO TUTTO")
-    return redirect(url_for('.home', idPort = current_user.idPort, id = 0))
+    return redirect(url_for('.home', idPort = current_user.idport, id = 0))
 
 @portafoglio_bp.route('/add', methods=['POST'])
 @login_required
@@ -352,7 +352,7 @@ def modifyCliente():
         print(error.__cause__)
         conn.rollback()
 
-    return redirect(url_for('.home',idPort = current_user.idPort, id = idCliente))
+    return redirect(url_for('.home',idPort = current_user.idport, id = idCliente))
 
 
 @portafoglio_bp.route('/addTrattativaForm', methods=['POST'])
@@ -428,7 +428,7 @@ def addTrattativaForm():
         print(error.__cause__)
         conn.rollback()
     
-    return redirect(url_for('.home',idPort = current_user.idPort, id = idCliente))
+    return redirect(url_for('.home',idPort = current_user.idport, id = idCliente))
 
 @portafoglio_bp.route('/addItForm', methods=['POST'])
 @login_required
@@ -463,7 +463,7 @@ def addItForm():
         print(error.__cause__)
         conn.rollback()
     
-    return redirect(url_for('.home',idPort = current_user.idPort, id = idCliente))
+    return redirect(url_for('.home',idPort = current_user.idport, id = idCliente))
 
 @portafoglio_bp.route('/modifyIt/<int:id>', methods=['POST'])
 def modifyIt(id):
@@ -491,7 +491,7 @@ def modifyIt(id):
         print(error)
         print(error.__cause__)
 
-    return redirect(url_for('.home', idPort = current_user.idPort, id = idcliente))
+    return redirect(url_for('.home', idPort = current_user.idport, id = idcliente))
 @portafoglio_bp.route('/removeIt/<int:id>', methods=['POST'])
 @login_required
 def deleteIt(id):
@@ -503,7 +503,7 @@ def deleteIt(id):
         print("rip")
         print(error)
         print(error.__cause__)
-    return redirect(url_for('.home', idPort = current_user.idPort, id = idcliente))
+    return redirect(url_for('.home', idPort = current_user.idport, id = idcliente))
 
 @portafoglio_bp.route('/getExcel/<int:id>')
 def getExcel(id):
