@@ -22,7 +22,10 @@ def home(id):
     tratVinte= 0
     tratPerse = 0
     tratVinteMoney = 0
+    print("id"+ str(id))
     clienti = conn.execute(select(cliente.c.ragionesociale, cliente.c.idcliente).where(cliente.c.idportafoglio == id)).fetchall()
+    #print("test clienti")
+    #print(clienti)
     trattative = conn.execute(select(trattativa, andamentotrattativa.c.nome, categoria.c.nome, cliente.c.ragionesociale)
                     .join(cliente)
                     .outerjoin(andamentotrattativa)
@@ -44,7 +47,7 @@ def home(id):
         for i in range(0, t_len):
             #test per vedere le trattative vinte
             #print(trattative[i])
-            if(trattative[i][25].upper() == "VINTA"):
+            if(trattative[i][24].upper() == "VINTA"):
                 tratVinte += 1 
                 if not (trattative[i][10] is None):
                     tratVinteMoney += trattative[i][10]
@@ -53,7 +56,7 @@ def home(id):
                 if not (trattative[i][13] is None):
                     tratVinteMoney += trattative[i][13]
 
-            if(trattative[i][25].upper() == "PERSA"):
+            if(trattative[i][24].upper() == "PERSA"):
                 tratPerse += 1
 
             appuntamenti = conn.execute(select(appuntamento.c.titolo, appuntamento.c.dataapp).select_from(join(appuntamento,join(trattativaappuntamento,trattativa, trattativaappuntamento.c.idtrattativa == trattativa.c.idtrattativa), appuntamento.c.idappuntamento == trattativaappuntamento.c.idappuntamento)).where(trattativa.c.idtrattativa == trattative[i][0]).where(appuntamento.c.dataapp >= todays_datetime).order_by(appuntamento.c.dataapp)).fetchall()

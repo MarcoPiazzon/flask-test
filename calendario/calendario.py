@@ -83,6 +83,8 @@ def addAppuntamento():
             idappuntamento = id.inserted_primary_key[0]
         ))
         print("tutto bvene")
+        res = conn.execute(select(trattativaappuntamento)).fetchall()
+        print(res)
         global message 
         message = "Appuntamento aggiunto"
     except Exception as error:
@@ -111,12 +113,15 @@ def checkNull(val):
 @calendario_bp.route('/modify', methods=['POST'])
 def modifyAppuntamento():
     try:
+        print(request.form)
         idapp = request.form['idapp']
         titolo = request.form['titolo']
         variediscussioni = request.form['varieDiscussioni']
         preventivodafare = request.form['preventivoDaFare']
         dataapp = checkDate(request.form['dataApp'])
         idtrattativa = checkNull(request.form['idtrattativa'])
+        print(dataapp)
+        print(idtrattativa)
         conn.execute(
             update(appuntamento).where(appuntamento.c.idappuntamento==idapp).values(
                 titolo = titolo,

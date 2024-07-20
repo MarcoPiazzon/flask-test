@@ -50,8 +50,8 @@
                     {% for i in range (0, t_len) %}
                     <tr data-bs-toggle="modal" data-bs-target="#staticBackdrop{{i}}">
                       <td>{% if trattative[i][8] %}{{trattative[i][8]}}{%else%}Non definito{%endif%}</td>
-                      <td>{{ trattative[i][27] }}</td>
-                      <td>{% if trattative[i][25] %} {{trattative[i][25]}} {%else%}Sconosciuto{%endif%}</td>
+                      <td>{% if trattative[i][26] %} {{ trattative[i][26] }} {%else%}Non definito {%endif%}</td>
+                      <td>{% if trattative[i][24] %} {{trattative[i][24]}} {%else%}Sconosciuto{%endif%}</td>
                       <td>{% if trattative[i][18] %} {{trattative[i][18]}} {%else%}Non indicata {%endif%}</td>
                     </tr>
                     <div class="modal fade" id="staticBackdrop{{i}}" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -65,7 +65,7 @@
                           <form action="/trattativa/modifyTrattativa/{{trattative[i][0]}}" method="POST">
                             <div class="modal-body">
                               <div class="row">
-                                <div class="{% if trattative[i][28] %}col-md-9{%else%}{%endif%}" id="modifica">
+                                <div class="{% if trattative[i][27] %}col-md-9{%else%}{%endif%}" id="modifica">
                                   <!-- Account details card-->
                                   <div class="row mb-4">
                                     <!--<div class="card-header">Modifica</div>-->
@@ -77,7 +77,7 @@
                                           aria-label="Default select example" id="idClienteModify">
                                           <option value="{% if trattative[i][2] %}{{trattative[i][2]}}{%endif%}"
                                             selected>
-                                            {% if trattative[i][27] %} {{trattative[i][27]}}{%endif%}</option>
+                                            {% if trattative[i][26] %} {{trattative[i][26]}}{%endif%}</option>
                                           {% for a in clienti %}
 
                                           <option value="{{a.idcliente}}">{{a.ragionesociale}}</option>
@@ -157,7 +157,7 @@
                                           aria-label="Default select example" id="faseModify">
                                           <option value="{% if trattative[i][19] %}{{trattative[i][19]}}{%endif%}"
                                             selected>
-                                            {% if trattative[i][25] %} {{trattative[i][25]}}{%endif%}</option>
+                                            {% if trattative[i][24] %} {{trattative[i][24]}}{%endif%}</option>
                                           {% for a in andamento %}
 
                                           <option value="{{a.idandamento}}">{{a.nome}}</option>
@@ -173,7 +173,7 @@
                                           id="categoriaOffertaITModify" name="categoriaOffertaITModify">
                                           <option value="{% if trattative[i][12] %}{{trattative[i][12]}}{%endif%}"
                                             selected>
-                                            {% if trattative[i][12] %}{{trattative[i][26]}}{%endif%}</option>
+                                            {% if trattative[i][25] %}{{trattative[i][25]}}{%endif%}</option>
                                           {% for c in categorie %}
                                           <option value="{{c.idcategoria}}">{{c.nome}}</option>
                                           {% endfor %}
@@ -271,11 +271,12 @@
 
                                   </div>
                                 </div>
-                                {% if trattative[i][28] %}
+                                {% if trattative[i][27] %}
                                 <div class="col-md-3">
                                   <div class="row mb-4">
+                                    <div class="page-heading text-center">prossimi app.</div>
                                     <div class="list-group mt-2">
-                                      {% for a in trattative[i][28] %}
+                                      {% for a in trattative[i][27] %}
 
                                       <li class="list-group-item">
                                         <div class="row mb-2">{{ a.titolo }}</div>

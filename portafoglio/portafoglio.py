@@ -15,10 +15,12 @@ titolo = ""
 #idPort: idPortafoglio
 #id: idCliente
 @portafoglio_bp.route('/<int:idPort>/<int:id>')
+@login_required
 def home(idPort, id):
     print("dentro home portafoglio")
     print(idPort)
     print(id)
+    print(current_user.idport)
     print(type(idPort))
     print(type(id))
     print(id is None)

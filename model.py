@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-engine = create_engine(os.getenv('DB_LINK'))
+engine = create_engine(os.getenv('DB_LINK'),future="True")
 metadata=MetaData()
 conn=engine.connect()
 
@@ -40,8 +40,9 @@ class User(UserMixin):
         print(res2)
         if not (res2 is None):
             res2 = res2
-        self.idPort = res2
-        print(self.idPort)
+        self.idport = res2
+        print("test id inside")
+        print(self.idport)
         print(res)
         self.nome = res['nome']
         self.cognome = res['cognome']

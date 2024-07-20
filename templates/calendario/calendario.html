@@ -64,11 +64,15 @@
         document.getElementById("crea").style.display = "none";
         document.getElementById("title").value = info.event.title;
         if (info.event.extendedProps) {
+          console.log( info.event.extendedProps.dataapp);
+          console.log( info.event.end);
+          console.log(typeof(info.event.extendedProps.dataapp));
+          console.log( info.event.start);
           document.getElementById("userCreator").innerHTML = "Evento creato da " + info.event.extendedProps.nome + " " + info.event.extendedProps.cognome;
           document.getElementById("idapp").value = info.event.extendedProps.idappuntamento;
           document.getElementById("description").value = info.event.extendedProps.description;
           document.getElementById("preventivoDaFare").value = info.event.extendedProps.preventivodafare;
-          document.getElementById("dataApp").value = info.event.extendedProps.dataapp;
+          document.getElementById("dataapp").value = info.event.extendedProps.dataapp;
           document.getElementById("idUtenteCreazione").value = info.event.extendedProps.idUtentecreazione;
           
           if(info.event.extendedProps.idtrattativa != "None" && info.event.extendedProps.nomeopportunita != "None"){
@@ -187,7 +191,7 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Date</label>
-                    <input class="form-control" name="dataApp" id="dataApp" type="datetime-local" name="birthday"
+                    <input class="form-control" name="dataApp" id="dataapp" type="datetime-local" name="birthday"
                       placeholder="Enter your birthday" value="">
                   </div>
                 </div>
@@ -211,7 +215,6 @@
             <div class="card-header">Aggiungi un appuntamento</div>
             <div class="card-body">
               <form action="/calendario/add" method="POST">
-                <input type="hidden" name="idapp" id="idapp" value="">
                 <input type="hidden" name="idUtenteCreazione" value="{{current_user.get_id()}}">
                 <!-- Form Group (username)-->
                 <div class="mb-3">
@@ -311,9 +314,9 @@
 
 
 <script>
-  const toastLiveExample = document.getElementById('liveToast');
-  const toast = new bootstrap.Toast(toastLiveExample);
-  toast.show();
+  /*const toastLiveExample = document.getElementById('liveToast');
+  co/nst toast = new bootstrap.Toast(toastLiveExample);
+  toast.show();*/
 
   obj = document.getElementsByClassName("ls")
   for (let item of obj) {

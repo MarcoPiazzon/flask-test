@@ -1,3 +1,1 @@
-COMUNI
-
-Serve fare la scelta comuni tramite menu a tendina?
+Da cancellare tabella appuntamento --> modificare type dataapp con "timestamp"
