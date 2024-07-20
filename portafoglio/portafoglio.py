@@ -18,13 +18,13 @@ titolo = ""
 @login_required
 def home(idPort, id):
     print("dentro home portafoglio")
-    print(idport)
+    print(idPort)
     print(id)
     print(current_user.idport)
-    print(type(idport))
+    print(type(idPort))
     print(type(id))
     print(id is None)
-    if(idport == 0):
+    if(idPort == 0):
         return render_template("home/home.html")
     current_user.idport = idPort
     clienti = None
@@ -91,7 +91,7 @@ def home(idPort, id):
 @login_required
 def goToPortafoglio(id):
     # chiamata da fare successivamente quando verrà cambiata l'interfaccia grafica, permette di ricevere tutte le trattative dato un cliente
-    return home(id, 0)
+    return redirect(url_for('.home',idPort = id, id = 0))
 
 @portafoglio_bp.route('/getCliente', methods=['POST'])
 @login_required
@@ -124,7 +124,7 @@ def removeTrattativa(id):
         print(error.__cause__)
         conn.rollback()
     
-    return home(current_user.idport, getIdCliente)
+    return redirect(url_for('.home',idPort = current_user.idport, id = getIdCliente))
 
 @portafoglio_bp.route('/removeCliente/<int:id>', methods=['POST'])
 @login_required
@@ -306,6 +306,7 @@ def modifyTrattativa(id):
 def modifyCliente():
  
     try:
+        print(request.form)
         idCliente = request.form['idCliente']
         ragioneSociale = request.form['ragioneSociale']
         cf = request.form['cf']
