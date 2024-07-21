@@ -231,7 +231,9 @@ def checkNull(val):
 @login_required
 def modifyTrattativa(id):
     print("modifiy Trattativa prova")
+    print(id)
     print(request.form)
+    
     idPort = 0
     try:
         idPort = request.form['idPortModify']
