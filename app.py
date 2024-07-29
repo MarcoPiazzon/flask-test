@@ -2,13 +2,7 @@ from sqlalchemy import *
 from flask_login import *
 from flask import Flask,redirect,url_for,render_template,make_response, request
 from home.home import home_bp
-from myarea.myarea import myarea_bp
 from login.login import login_bpp
-from corsi.corsi import corsi_bp
-from admin.admin import admin_bp
-from corsilaurea.corsilaurea import corsilaurea_bp
-from esami.esami import esami_bp
-from corsidoc.corsidoc import corsidoc_bp
 from portafoglio.portafoglio import portafoglio_bp 
 from calendario.calendario import calendario_bp
 from contatto.contatto import contatto_bp
@@ -36,12 +30,6 @@ def inject_today_date():
 
 app.register_blueprint(login_bpp,url_prefix='/login')
 app.register_blueprint(home_bp,url_prefix='/home')
-app.register_blueprint(myarea_bp,url_prefix='/myarea')
-app.register_blueprint(corsi_bp,url_prefix='/corsi')
-app.register_blueprint(admin_bp,url_prefix='/admin')
-app.register_blueprint(corsilaurea_bp,url_prefix='/corsilaurea')
-app.register_blueprint(esami_bp,url_prefix='/esami')
-app.register_blueprint(corsidoc_bp,url_prefix='/corsidoc')
 app.register_blueprint(portafoglio_bp, url_prefix='/portafoglio')
 app.register_blueprint(calendario_bp, url_prefix='/calendario')
 app.register_blueprint(contatto_bp, url_prefix='/contatto')
