@@ -36,11 +36,10 @@ class User(UserMixin):
         self.idport = 0
         res =conn.execute(select(utente.c.nome, utente.c.cognome).where(utente.c.email==email)).fetchone()._asdict()
 	
-        res2 = conn.execute(select(portafoglio.c.idportafoglio).where(portafoglio.c.idutente == id).order_by(portafoglio.c.idportafoglio.desc())).fetchone()[0]
+        res2 = conn.execute(select(portafoglio.c.idportafoglio).where(portafoglio.c.idutente == id).order_by(portafoglio.c.idportafoglio.desc())).fetchone()
         print(res2)
         if not (res2 is None):
-            res2 = res2
-        self.idport = res2
+            self.idport = res2[0]
         print("test id inside")
         print(self.idport)
         print(res)
