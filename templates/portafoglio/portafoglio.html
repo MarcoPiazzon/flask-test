@@ -1311,7 +1311,6 @@
   }
 
   function getName(el, val, contatto) {
-    alert(contatto);
     console.log(el);
     console.log(el.previousElementSibling);
     nameInput = "myInput";
@@ -1340,7 +1339,6 @@
   function setFase(el) {
     let s = document.getElementById("faseOptions");
     let selected = s.options[s.selectedIndex].value;
-    alert(selected);
     document.getElementById("faseModify").value = selected;
   }
 
@@ -1348,7 +1346,6 @@
     let s = document.getElementById("categoriaOptions");
     let selected = s.options[s.selectedIndex].value;
     document.getElementById("categoriaOffertaITModify").value = selected;
-    alert(selected);
   }
   setLocal('cfit')
   function setLocal(val) {

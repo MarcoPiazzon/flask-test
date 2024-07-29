@@ -16,6 +16,7 @@ warnings.simplefilter(action='ignore', category=UserWarning)
 
 titolo = "Home"
 @home_bp.route('/', methods=['GET', 'POST'])
+@login_required
 def home():
     contatti = conn.execute(select(contatto).where(contatto.c.idutente == current_user.get_id())).fetchall()
     
