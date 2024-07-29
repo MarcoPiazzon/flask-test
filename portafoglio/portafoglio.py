@@ -96,9 +96,12 @@ def goToPortafoglio(id):
 @portafoglio_bp.route('/getCliente', methods=['POST'])
 @login_required
 def getCliente():
-    #print(request.form)
+    print(request.form)
+    print(type(request.form['idSearch']))
     idPort = request.form['idPort']
-    id=request.form['idSearch']
+    id = 0
+    if (request.form['idSearch'] != ''):
+        id=request.form['idSearch']
     current_user.idport = idPort
     return redirect(url_for('.home',idPort = idPort, id = id))
 
@@ -291,6 +294,7 @@ def modifyTrattativa(id):
                 fornitore = fornitore
             )
         )
+        conn.commit()
         
         print("tutto bvene")
     except Exception as error:
@@ -348,6 +352,7 @@ def modifyCliente():
                 fatturatotim = fatturatoTim,
             )
         )
+        conn.commit()
         print("tutto bvene")
     except Exception as error:
         print("rip")
@@ -423,7 +428,7 @@ def addTrattativaForm():
             inpaf = 1,
             fornitore = fornitore
         ))
-        
+        conn.commit()
         print("tutto bene add")
     except Exception as error:
         print("rip")
@@ -458,7 +463,7 @@ def addItForm():
             canoneannuo = canoneAnnuo,
             canonemese = canoneMese
         ))
-        
+        conn.commit()
         print("tutto bene add")
     except Exception as error:
         print("rip")
@@ -470,6 +475,7 @@ def addItForm():
 
 @portafoglio_bp.route('/modifyIt/<int:id>', methods=['POST'])
 def modifyIt(id):
+    print(request.form)
     idcliente = request.form['idClienteModifyIt']
     servizio = request.form['servizioModify']
     quantita = request.form['quantitaModify']
@@ -489,6 +495,7 @@ def modifyIt(id):
             canoneannuo = canoneannuo,
             canonemese = canonemese
         ).where(it_table.c.idit == id))
+        conn.commit()
     except Exception as error:
         print("rip")
         print(error)
@@ -502,6 +509,7 @@ def deleteIt(id):
     try:
         idcliente= conn.execute(select(it_table.c.idcliente).where(it_table.c.idit == id)).fetchone()[0]
         conn.execute(delete(it_table).where(it_table.c.idit == id))
+        conn.commit()
     except Exception as error:
         print("rip")
         print(error)

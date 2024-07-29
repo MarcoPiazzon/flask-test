@@ -92,8 +92,7 @@
     <ul class="ms-auto d-flex align-items-center list-unstyled mb-0">
 
       <li class="nav-item dropdown ms-auto"><a class="nav-link pe-0" id="userInfo" href="#" data-bs-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false"><img class="avatar p-1"
-            src="" alt="Jason Doe"></a><!-- Qui inserire l'immagine profilo-->
+          aria-haspopup="true" aria-expanded="false"><img class="avatar p-1" alt="Jason Doe"></a><!-- Qui inserire l'immagine profilo-->
         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="userInfo">
           <div class="dropdown-header text-gray-700">
             <h6 class="text-uppercase font-weight-bold">{{current_user.getnames }}</h6><small>Dipendente TIM</small>
@@ -113,8 +112,6 @@
 
   <div class="d-flex align-items-stretch">
     <div class="sidebar py-3" id="sidebar">
-      <h6 class="sidebar-heading">Main</h6>
-
       <ul class="list-unstyled">
         <li class="sidebar-list-item"><a class="sidebar-link text-muted"
             href="{{ url_for('portafoglio_bp.home', idPort=current_user.idport, id=0) }}">

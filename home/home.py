@@ -222,6 +222,7 @@ def addPortafoglio():
             ))
             print("insert")
         print("okokoko")
+        conn.commit()
         print("sono qua 1")
         if not (file2 is None):
              
@@ -292,6 +293,7 @@ def addPortafoglio():
                         print("rip row interna")
                         print(error)
                         print(error.__cause__)
+            conn.commit()
         print("okokoko")
         global message
         message = "Portafoglio creato"

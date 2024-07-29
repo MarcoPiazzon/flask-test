@@ -199,7 +199,7 @@
 
                 <form action="/portafoglio/getCliente" method="POST">
                   <input type="hidden" name="idPort" value="{{idPort}}">
-                  <input type="hidden" name="idSearch" id="idSearch">
+                  <input type="hidden" name="idSearch" id="idSearch" value="{%if current_cliente %} {{current_cliente[0]}} {%endif%}">
                   <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
               </div>
@@ -921,12 +921,12 @@
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="inputBirthday">probabilita</label>
-                  <input class="form-control cftr" name="probabilitaAdd" id="inputBirthday" type="text" name="birthday"
+                  <input class="form-control cftr" name="probabilitaAdd" id="inputBirthday" type="text"
                     placeholder="Enter your birthday" value="" required>
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="inputBirthday">inPaf</label>
-                  <input class="form-control cftr" name="inPafAdd" id="inputBirthday" type="text" name="birthday"
+                  <input class="form-control cftr" name="inPafAdd" id="inputBirthday" type="text"
                     placeholder="Enter your birthday" value="">
                 </div>
 
@@ -951,7 +951,7 @@
                 </div>
                 <div class="col-md-4">
                   <label class="small mb-1" for="inputBirthday">it</label>
-                  <input class="form-control cftr" name="itAdd" id="inputBirthday" type="text" name="birthday"
+                  <input class="form-control cftr" name="itAdd" id="inputBirthday" type="text"
                     placeholder="Enter your birthday" value="">
 
                 </div>
@@ -967,19 +967,17 @@
                 <div class="col-md-3">
 
                   <label class="small mb-1" for="inputBirthday">aom</label>
-                  <input class="form-control cftr" name="aomAdd" id="inputBirthday" type="text" name="birthday"
-                    placeholder="Enter your birthday" value="">
+                  <input class="form-control cftr" name="aomAdd" id="inputBirthday" type="text" value="">
 
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="inputBirthday">mnp</label>
-                  <input class="form-control cftr" name="mnpAdd" id="inputBirthday" type="text" name="birthday"
-                    placeholder="Enter your birthday" value="">
+                  <input class="form-control cftr" name="mnpAdd" id="inputBirthday" type="text" value="">
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="inputPhone">lineeFoniaFixAdd</label>
                   <input class="form-control cftr" name="lineeFoniaFixAdd" id="inputPhone" type="tel"
-                    placeholder="Enter your phone number" value="">
+                    value="">
                 </div>
               </div>
               <div class="row gx-3 mb-3">
@@ -1152,12 +1150,12 @@
               <!-- Form Group (first name)-->
               <div class="col-md-6">
                 <label class="small mb-1" for="dataAttivazioneAdd">Data Attivazione</label>
-                <input class="form-control cfit" name="dataAttivazioneAdd" id="dataAttivazioneAdd" type="date" value="">
+                <input class="form-control cfit" name="dataAttivazioneAdd" id="dataAttivazioneAdd" type="date" value="" required>
               </div>
               <!-- Form Group (last name)-->
               <div class="col-md-6">
                 <label class="small mb-1" for="dataScadenzaAdd">Data Scadenza</label>
-                <input class="form-control cfit" name="dataScadenzaAdd" id="dataScadenzaAdd" type="date" value="">
+                <input class="form-control cfit" name="dataScadenzaAdd" id="dataScadenzaAdd" type="date" value="" required>
 
               </div>
             </div>
@@ -1176,8 +1174,7 @@
             <!-- Save changes button-->
 
           </div>
-          <button class="btn btn-primary" type="submit" style="float: left;" id="btnCreaTrattativa">Aggiungi
-            trattativa</button>
+          <button class="btn btn-primary" type="submit" style="float: left;" id="btnCreaTrattativa">Aggiungi IT</button>
           <button class="btn btn-primary" type="button" style="float: right;" id="cleanFormTrattativa"
             onclick="clean('cfit')">Pulisci
             tutto</button>
