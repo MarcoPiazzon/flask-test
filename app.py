@@ -57,18 +57,3 @@ def error_handler(error):
 @app.errorhandler(403)
 def error_handler(error):
     return render_template("/errors/403.html")
-
-@login_required
-@app.route('/appelli/<int:idapp>/users/download',methods=['POST'])
-def userslistds(idapp):
-    with app.test_client() as client:
-        res =client.get('/esami/appelli/'+str(idapp)+'/users')
-        content=res.data.decode('utf-8')
-    pdf = HTML(string=content).write_pdf()
-    respo= make_response(pdf)
-    respo.headers['Content-Type'] = 'application/pdf'
-    respo.headers['Content-Disposition'] = 'attachment; filename=risultati.pdf'
-    return respo
-
-if __name__ == "__main__":
-    app.run(debug=True)
