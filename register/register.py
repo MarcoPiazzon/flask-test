@@ -32,11 +32,15 @@ def insertuser():
             nome = nome,
             cognome=cognome,
             psw=password,
-            email=email,
-            areaManager = areaManager
+            email=email
+            #areaManager = areaManager
             ))
         conn.commit()
         print(ris.inserted_primary_key[0])
+        print(email)
+        print(type(email))
+        print(email[0])
+        
         login_user(User(ris.inserted_primary_key[0],email[0])) # utilizzo flask_login per creare i cookies
         return redirect(url_for('home_bp.home'))
     except Exception as error:
