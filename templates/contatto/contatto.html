@@ -158,7 +158,7 @@
                     <div class="row">
                         <div class="col-md-11">
                             <input class="form-control" type="text" id="myInput" onkeyup="myFunction()"
-                                onclick="showUp(this)" placeholder="Search for names.." title="Type in a name">
+                                onclick="showUp(this)" title="Type in a name">
                         </div>
                         <div class="col-md-1">
                             <form action="/contatto/getContatto" method="POST">
@@ -355,16 +355,6 @@
                     onclick="showTrattativa(this)">Aggiungi un contatto manualmente</button>
                 <button class="btn btn-primary mb-2" type="button" id="btnTrattativaFile"
                     onclick="showTrattativaFile(this)">Aggiungi uno o più contatti da un file esterno</button>
-                <!--<div class="row" id="showTrattativaFile" style="display: none;">
-                  <form action="/home/addPortafoglio" method="post" enctype="multipart/form-data">
-          
-                    <div class="input-group mt-2">
-                      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" placeholder="Inserisci il file" aria-label="Upload" name="file"
-                      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                    </div>
-                    <button class="btn btn-outline-secondary mt-2" type="submit" id="inputGroupFileAddon04">Inserisci</button>
-                  </form>
-                </div>-->
                 <div class="row mt-4 py-2" id="contattoFile" style="display: none;">
 
                     <form id="signUpForm" action="/contatto/addContattoFile" method="post"
@@ -484,20 +474,17 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="nome">Nome contatto</label>
-                                        <input class="form-control" name="nomeAdd" id="nome" type="text" placeholder=""
-                                            value="">
+                                        <input class="form-control" name="nomeAdd" id="nome" type="text" value="">
                                     </div>
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="secondoNome">secondoNome</label>
-                                        <input class="form-control" name="secondoNomeAdd" id="secondoNome" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="secondoNomeAdd" id="secondoNome" type="text" value="">
                                     </div>
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="cognome">cognome</label>
-                                        <input class="form-control" name="cognomeAdd" id="cognome" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="cognomeAdd" id="cognome" type="text" value="">
                                     </div>
                                 </div>
 
@@ -506,19 +493,16 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="viaUfficio1">viaUfficio1</label>
-                                        <input class="form-control" name="viaUfficio1Add" id="viaUfficio1" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="viaUfficio1Add" id="viaUfficio1" type="text" value="">
                                     </div>
                                     <!-- Form Group (location)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="viaUfficio2">viaUfficio2</label>
-                                        <input class="form-control" name="viaUfficio2Add" id="viaUfficio2" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="viaUfficio2Add" id="viaUfficio2" type="text" value="">
                                     </div>
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="viaUfficio3">viaUfficio3</label>
-                                        <input class="form-control" name="viaUfficio3Add" id="viaUfficio3" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="viaUfficio3Add" id="viaUfficio3" type="text" value="">
                                     </div>
                                 </div>
                                 <!-- Form Group (email address)-->
@@ -527,25 +511,21 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="provincia">provincia</label>
-                                        <input class="form-control" name="provinciaAdd" id="provincia" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="provinciaAdd" id="provincia" type="text" value="">
                                     </div>
                                     <!-- Form Group (phone number)-->
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="cap">cap</label>
-                                        <input class="form-control" name="capAdd" id="cap" type="text" placeholder=""
-                                            value="">
+                                        <input class="form-control" name="capAdd" id="cap" type="text" value="">
                                     </div>
                                     <!-- Form Group (birthday)-->
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="numUfficio">numUfficio</label>
-                                        <input class="form-control" name="numUfficioAdd" id="numUfficio" type="text"
-                                            name="birthday" placeholder="" value="">
+                                        <input class="form-control" name="numUfficioAdd" id="numUfficio" type="text" value="">
                                     </div>
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="numUfficio2">numUfficio2</label>
-                                        <input class="form-control" name="numUfficio2Add" id="numUfficio2" type="text"
-                                            name="birthday" placeholder="" value="">
+                                        <input class="form-control" name="numUfficio2Add" id="numUfficio2" type="text" value="">
                                     </div>
                                 </div>
                                 <!-- Form Row-->
@@ -553,24 +533,22 @@
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="telefonoPrincipale">telefonoPrincipale</label>
                                         <input class="form-control" name="telefonoPrincipaleAdd" id="telefonoPrincipale"
-                                            type="tel" placeholder="" value="">
+                                            type="tel" value="">
                                     </div>
                                     <!-- Form Group (first name)-->
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="faxAbitazione">faxAbitazione</label>
                                         <input class="form-control" name="faxAbitazioneAdd" id="faxAbitazione"
-                                            type="text" placeholder="" value="">
+                                            type="text" value="">
                                     </div>
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="abitazione">abitazione</label>
-                                        <input class="form-control" name="abitazioneAdd" id="abitazione" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="abitazioneAdd" id="abitazione" type="text" value="">
                                     </div>
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="cellulare">cellulare</label>
-                                        <input class="form-control" name="cellulareAdd" id="cellulare" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="cellulareAdd" id="cellulare" type="text" value="">
                                     </div>
                                 </div>
                                 <!-- Form Row        -->
@@ -578,14 +556,12 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="email1">email1</label>
-                                        <input class="form-control" name="email1Add" id="email1" type="email"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="email1Add" id="email1" type="email" value="">
                                     </div>
                                     <!-- Form Group (birthday)-->
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="email2">email2</label>
-                                        <input class="form-control" name="email2Add" id="email2" type="email"
-                                            name="birthday" placeholder="" value="">
+                                        <input class="form-control" name="email2Add" id="email2" type="email" value="">
                                     </div>
                                     <!-- Form Group (location)-->
 
@@ -593,8 +569,7 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-3">
                                         <label class="small mb-1" for="note">note</label>
-                                        <input class="form-control" name="noteAdd" id="note" type="text" placeholder=""
-                                            value="">
+                                        <input class="form-control" name="noteAdd" id="note" type="text" value="">
                                     </div>
                                 </div>
                                 <!-- Form Row-->
@@ -603,8 +578,7 @@
 
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="paginaWeb">paginaWeb</label>
-                                        <input class="form-control" name="paginaWebAdd" id="paginaWeb" type="text"
-                                            placeholder="" value="">
+                                        <input class="form-control" name="paginaWebAdd" id="paginaWeb" type="text" value="">
                                     </div>
                                 </div>
                                 <!-- Save changes button-->

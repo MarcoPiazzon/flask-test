@@ -192,7 +192,7 @@
             <div class="input-group ">
               <div class="col-11">
                 <input class="form-control" type="text" id="myInput" onkeyup="myFunction(0)" onclick="showUp(this,0)"
-                  placeholder="Cerca un cliente" title="Type in a name"
+                  placeholder="Cerca un cliente"
                   value="{%if current_cliente %}{{current_cliente[5]}} {%endif%}">
               </div>
               <div class="col-1">
@@ -234,30 +234,25 @@
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (first name)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputUsername">Ragione Sociale</label>
-                    <input class="form-control" name="ragioneSociale" id="inputUsername" type="text"
-                      placeholder="Enter your username" value="{{current_cliente[5]}}">
+                    <label class="small mb-1" for="ragioneSociale">Ragione Sociale</label>
+                    <input class="form-control" name="ragioneSociale" id="ragioneSociale" type="text" value="{{current_cliente[5]}}">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputFirstName">Cf</label>
-                    <input class="form-control" name="cf" id="inputFirstName" type="text"
-                      placeholder="Enter your first name" value="{{current_cliente[4]}}">
+                    <label class="small mb-1" for="cf">Cf</label>
+                    <input class="form-control" name="cf" id="cf" type="text" value="{{current_cliente[4]}}">
                   </div>
                   <!-- Form Group (last name)-->
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputPhone">Numero sedi</label>
-                    <input class="form-control" name="sediTot" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number" value="{{current_cliente[12]}}">
+                    <label class="small mb-1" for="sediTot">Numero sedi</label>
+                    <input class="form-control" name="sediTot" id="sediTot" type="tel" value="{{current_cliente[12]}}">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputBirthday">Numero dipendenti</label>
-                    <input class="form-control" name="dipendenti" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="{{current_cliente[20]}}">
+                    <label class="small mb-1" for="dipendenti">Numero dipendenti</label>
+                    <input class="form-control" name="dipendenti" id="dipendenti" type="text" value="{{current_cliente[20]}}">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputBirthday">Numero linee totali</label>
-                    <input class="form-control" name="nLineeTot" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="{{current_cliente[13]}}">
+                    <label class="small mb-1" for="nLineeTot">Numero linee totali</label>
+                    <input class="form-control" name="nLineeTot" id="nLineeTot" type="text" value="{{current_cliente[13]}}">
                   </div>
 
                 </div>
@@ -265,62 +260,53 @@
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (organization name)-->
                   <div class="col-md-5">
-                    <label class="small mb-1" for="inputOrgName">Indirizzo</label>
-                    <input class="form-control" name="indirizzo" id="inputOrgName" type="text"
-                      placeholder="Enter your organization name" value="{{current_cliente[7]}}">
+                    <label class="small mb-1" for="indirizzo">Indirizzo</label>
+                    <input class="form-control" name="indirizzo" id="indirizzo" type="text" value="{{current_cliente[7]}}">
                   </div>
                   <!-- Form Group (location)-->
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputLocation">CAP</label>
-                    <input class="form-control" name="capPrincipale" id="inputLocation" type="text"
-                      placeholder="Enter your location" value="{{current_cliente[9]}}">
+                    <label class="small mb-1" for="capPrincipale">CAP</label>
+                    <input class="form-control" name="capPrincipale" id="capPrincipale" type="text" value="{{current_cliente[9]}}">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputLocation">Comune</label>
-                    <input class="form-control" name="comunePrincipale" id="inputLocation" type="text"
-                      placeholder="Enter your location" value="{{current_cliente[10]}}">
+                    <label class="small mb-1" for="comunePrincipale">Comune</label>
+                    <input class="form-control" name="comunePrincipale" id="comunePrincipale" type="text" value="{{current_cliente[10]}}">
                   </div>
                   <div class="col-lg-3">
-                    <label class="small mb-1" for="inputLastName">Presidio</label>
-                    <input class="form-control" name="presidio" id="inputLastName" type="text"
-                      placeholder="Enter your last name"
-                      value="{% if current_cliente[6]%}{{current_cliente[6]}}  {% endif%}">
+                    <label class="small mb-1" for="presidio">Presidio</label>
+                    <input class="form-control" name="presidio" id="presidio" type="text"
+                      value="{% if current_cliente[6]%}{{current_cliente[6]}}{% endif%}">
                   </div>
                 </div>
                 <!-- Form Row-->
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (phone number)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputPhone">Fisso</label>
-                    <input class="form-control" name="fisso" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number" value="{{current_cliente[14]}}">
+                    <label class="small mb-1" for="fisso">Fisso</label>
+                    <input class="form-control" name="fisso" id="fisso" type="tel" value="{{current_cliente[14]}}">
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputBirthday">Mobile</label>
-                    <input class="form-control" name="mobile" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="{{current_cliente[15]}}">
+                    <label class="small mb-1" for="mobile">Mobile</label>
+                    <input class="form-control" name="mobile" id="mobile" type="text" value="{{current_cliente[15]}}">
                   </div>
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputBirthday">Totale</label>
-                    <input class="form-control" name="totale" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="{{current_cliente[16]}}">
+                    <label class="small mb-1" for="totale">Totale</label>
+                    <input class="form-control" name="totale" id="totale" type="text" value="{{current_cliente[16]}}">
                   </div>
                 </div>
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (phone number)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputPhone">Fatturato Cerved</label>
-                    <input class="form-control" name="fatturatoCerved" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number"
-                      value="{% if current_cliente[17]%}{{current_cliente[17]}} {%else%}0.0{% endif%}">
+                    <label class="small mb-1" for="fatturatoCerved">Fatturato Cerved</label>
+                    <input class="form-control" name="fatturatoCerved" id="fatturatoCerved" type="tel"
+                      value="{% if current_cliente[17]%}{{current_cliente[17]}}{%else%}0.0{% endif%}">
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputBirthday">Fatturato TIM</label>
-                    <input class="form-control" name="fatturatoTim" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday"
-                      value="{% if current_cliente[19]%}{{current_cliente[19]}} {%else%}0.0{% endif%}">
+                    <label class="small mb-1" for="fatturatoTim">Fatturato TIM</label>
+                    <input class="form-control" name="fatturatoTim" id="fatturatoTim" type="text"
+                      value="{% if current_cliente[19]%}{{current_cliente[19]}}{%else%}0.0{% endif%}">
                   </div>
                 </div>
                 <!-- Save changes button-->
@@ -332,8 +318,6 @@
               </form>
             </div>
           </div>
-
-
         </div>
         <div class="container px-4 mt-4" id="crea" style="display: none;">
           <!-- Account details card-->
@@ -346,56 +330,46 @@
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (first name)-->
                   <div class="col-md-4">
-                    <label class="small mb-1" for="inputUsername">Ragione Sociale</label>
-                    <input class="form-control cfcl" name="ragioneSociale" id="inputUsernameAdd" type="text"
-                      placeholder="" value="">
+                    <label class="small mb-1" for="ragioneSociale">Ragione Sociale</label>
+                    <input class="form-control cfcl" name="ragioneSociale" id="ragioneSociale" type="text" value="">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputFirstName">Cf</label>
-                    <input class="form-control cfcl" name="cf" id="inputFirstName" type="text"
-                      placeholder="Enter your first name" value="">
+                    <label class="small mb-1" for="cf">Cf</label>
+                    <input class="form-control cfcl" name="cf" id="cf" type="text" value="">
                   </div>
                   <!-- Form Group (last name)-->
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputPhone">Numero sedi</label>
-                    <input class="form-control cfcl" name="sediTot" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number" value="">
+                    <label class="small mb-1" for="sediTot">Numero sedi</label>
+                    <input class="form-control cfcl" name="sediTot" id="sediTot" type="number" value="">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputBirthday">Numero dipendenti</label>
-                    <input class="form-control cfcl" name="dipendenti" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <label class="small mb-1" for="dipendenti">Numero dipendenti</label>
+                    <input class="form-control cfcl" name="dipendenti" id="dipendenti" type="number" value="">
                   </div>
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputBirthday">Numero linee totali</label>
-                    <input class="form-control cfcl" name="nLineeTot" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <label class="small mb-1" for="nLineeTot">Numero linee totali</label>
+                    <input class="form-control cfcl" name="nLineeTot" id="nLineeTot" type="number" value="">
                   </div>
-
                 </div>
-                <!-- Form Row        -->
+                <!-- Form Row -->
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (organization name)-->
                   <div class="col-md-5">
-                    <label class="small mb-1" for="inputOrgName">Indirizzo</label>
-                    <input class="form-control cfcl" name="indirizzo" id="inputOrgName" type="text"
-                      placeholder="Enter your organization name" value="">
+                    <label class="small mb-1" for="indirizzo">Indirizzo</label>
+                    <input class="form-control cfcl" name="indirizzo" id="indirizzo" type="text" value="">
                   </div>
                   <!-- Form Group (location)-->
                   <div class="col-md-2">
-                    <label class="small mb-1" for="inputLocation">CAP</label>
-                    <input class="form-control cfcl" name="capPrincipale" id="inputLocation" type="text"
-                      placeholder="Enter your location" value="">
+                    <label class="small mb-1" for="capPrincipale">CAP</label>
+                    <input class="form-control cfcl" name="capPrincipale" id="capPrincipale" type="text" value="">
                   </div>
                   <div class="col-md-2">
                     <label class="small mb-1" for="inputLocation">Comune</label>
-                    <input class="form-control cfcl" name="comunePrincipale" id="inputLocation" type="text"
-                      placeholder="Enter your location" value="">
+                    <input class="form-control cfcl" name="comunePrincipale" id="inputLocation" type="text" value="">
                   </div>
                   <div class="col-lg-3">
                     <label class="small mb-1" for="inputLastName">Presidio</label>
-                    <input class="form-control cfcl" name="presidio" id="inputLastName" type="text"
-                      placeholder="Enter your last name" value="">
+                    <input class="form-control cfcl" name="presidio" id="inputLastName" type="text" value="">
                   </div>
                 </div>
                 <!-- Form Row-->
@@ -403,33 +377,28 @@
                   <!-- Form Group (phone number)-->
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputPhone">Fisso</label>
-                    <input class="form-control cfcl" name="fisso" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number" value="">
+                    <input class="form-control cfcl" name="fisso" id="inputPhone" type="tel" value="">
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Mobile</label>
-                    <input class="form-control cfcl" name="mobile" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <input class="form-control cfcl" name="mobile" id="inputBirthday" type="text" value="">
                   </div>
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Totale</label>
-                    <input class="form-control cfcl" name="totale" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <input class="form-control cfcl" name="totale" id="inputBirthday" type="text" value="">
                   </div>
                 </div>
                 <div class="row gx-3 mb-3">
                   <!-- Form Group (phone number)-->
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputPhone">Fatturato Cerved</label>
-                    <input class="form-control cfcl" name="fatturatoCerved" id="inputPhone" type="tel"
-                      placeholder="Enter your phone number" value="">
+                    <input class="form-control cfcl" name="fatturatoCerved" id="inputPhone" type="number" value="">
                   </div>
                   <!-- Form Group (birthday)-->
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Fatturato TIM</label>
-                    <input class="form-control cfcl" name="fatturatoTim" id="inputBirthday" type="text" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <input class="form-control cfcl" name="fatturatoTim" id="inputBirthday" type="number" value="">
                   </div>
                 </div>
                 <!-- Save changes button-->
@@ -517,7 +486,7 @@
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                   <label class="small mb-1" for="tipoModify">tipo</label>
-                                  <input class="form-control" name="tipoModify" id="tipoModify" \ type="text"
+                                  <input class="form-control" name="tipoModify" id="tipoModify" type="text"
                                     value="{% if trattative[i][7] %}{{trattative[i][7]}}{%endif%}">
 
                                 </div>
@@ -533,8 +502,8 @@
                                     value="{% if trattative[i][9] %}{{trattative[i][9]}}{%endif%}">
                                 </div>
                                 <div class="col-md-6">
-                                  <label class="small mb-1" for="inputBirthday">dataChiusura</label>
-                                  <input class="form-control" name="dataChiusuraModify" id="inputBirthday" type="date"
+                                  <label class="small mb-1" for="dataChiusuraModify">dataChiusura</label>
+                                  <input class="form-control" name="dataChiusuraModify" id="dataChiusuraModify" type="date"
                                     value="{% if trattative[i][18] %}{{trattative[i][18]}}{%endif%}">
                                 </div>
                               </div>
@@ -543,11 +512,11 @@
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-3">
 
-                                  <label class="small mb-1" for="inputPhone">fase</label>
+                                  <label class="small mb-1" for="faseModify">fase</label>
                                   <select class="form-select" name="faseModify" aria-label="Default select example"
                                     id="faseOptions">
                                     <option value="{% if trattative[i][19] %}{{trattative[i][19]}}{%endif%}" selected>
-                                      {% if trattative[i][24] %} {{trattative[i][24]}}{%endif%}</option>
+                                      {% if trattative[i][24] %}{{trattative[i][24]}}{%endif%}</option>
                                     {% for a in andamento %}
 
                                     <option value="{{a.idandamento}}">{{a.nome}}</option>
@@ -738,16 +707,6 @@
         <button class="btn btn-primary mb-2" type="button" id="btnTrattativaFile"
           onclick="showTrattativaFile(this)">Aggiungi
           trattativa da un file esterno</button>
-        <!--<div class="row" id="showTrattativaFile" style="display: none;">
-          <form action="/home/addPortafoglio" method="post" enctype="multipart/form-data">
-  
-            <div class="input-group mt-2">
-              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" placeholder="Inserisci il file" aria-label="Upload" name="file"
-              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-            </div>
-            <button class="btn btn-outline-secondary mt-2" type="submit" id="inputGroupFileAddon04">Inserisci</button>
-          </form>
-        </div>-->
         <div class="row mt-4 py-2" style="display: none;" id="trattativaFile">
 
           <form id="signUpForm" action="/home/addPortafoglio" method="post" enctype="multipart/form-data">
@@ -844,61 +803,49 @@
               <!-- Form Group (username)-->
               <div class="row gx-3 mb-3">
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputUsername">codiceCtrDigitali</label>
-                  <input class="form-control cftr" name="codiceCtrDigitaliAdd" id="inputUsername" type="text"
-                    placeholder="Enter your username" value="">
+                  <label class="small mb-1" for="codiceCtrDigitaliAdd">codiceCtrDigitali</label>
+                  <input class="form-control cftr" name="codiceCtrDigitaliAdd" id="codiceCtrDigitaliAdd" type="text" value="">
                 </div>
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputFirstName">codiceSalesHub</label>
-                  <input class="form-control cftr" name="codiceSalesHubAdd" id="inputFirstName" type="text"
-                    placeholder="Enter your first name" value="">
+                  <label class="small mb-1" for="codiceSalesHubAdd">codiceSalesHub</label>
+                  <input class="form-control cftr" name="codiceSalesHubAdd" id="codiceSalesHubAdd" type="text" value="">
                 </div>
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputLastName">zona</label>
-                  <input class="form-control cftr" name="zonaAdd" id="inputLastName" type="text"
-                    placeholder="Enter your last name" value="">
+                  <label class="small mb-1" for="zonaAdd">zona</label>
+                  <input class="form-control cftr" name="zonaAdd" id="zonaAdd" type="text" value="">
                 </div>
-
-
               </div>
               <!-- Form Row-->
               <div class="row gx-3 mb-3">
                 <!-- Form Group (first name)-->
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputLastName">nomeOpportunita</label>
-                  <input class="form-control cftr" name="nomeOpportunitaAdd" id="inputLastName" type="text"
-                    placeholder="Enter your last name" value="" required>
-
+                  <label class="small mb-1" for="nomeOpportunitaAdd">nomeOpportunita</label>
+                  <input class="form-control cftr" name="nomeOpportunitaAdd" id="nomeOpportunitaAdd" type="text" value="" required>
                 </div>
                 <!-- Form Group (last name)-->
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputOrgName">tipo</label>
-                  <input class="form-control cftr" name="tipoAdd" id="inputOrgName" type="text"
-                    placeholder="Enter your organization name" value="">
-
+                  <label class="small mb-1" for="tipoAdd">tipo</label>
+                  <input class="form-control cftr" name="tipoAdd" id="tipoAdd" type="text" value="">
                 </div>
               </div>
               <!-- Form Row        -->
               <div class="row gx-3 mb-3">
                 <!-- Form Group (location)-->
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputLocation">dataCreazioneOpportunita</label>
-                  <input class="form-control cftr" name="dataCreazioneOpportunitaAdd" id="inputLocation" type="date"
-                    placeholder="Enter your location" value="" required>
+                  <label class="small mb-1" for="dataCreazioneOpportunitaAdd">dataCreazioneOpportunita</label>
+                  <input class="form-control cftr" name="dataCreazioneOpportunitaAdd" id="dataCreazioneOpportunitaAdd" type="date" value="" required>
                 </div>
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputBirthday">dataChiusura</label>
-                  <input class="form-control cftr" name="dataChiusuraAdd" id="inputBirthday" type="date" name="birthday"
-                    placeholder="Enter your birthday" value="" required>
+                  <label class="small mb-1" for="dataChiusuraAdd">dataChiusura</label>
+                  <input class="form-control cftr" name="dataChiusuraAdd" id="dataChiusuraAdd" type="date" value="" required>
                 </div>
               </div>
               <!-- Form Row-->
               <div class="row gx-3 mb-3">
                 <!-- Form Group (phone number)-->
                 <div class="col-md-3">
-
-                  <label class="small mb-1" for="inputPhone">fase</label>
-                  <select class="form-select" name="faseAdd" aria-label="Default select example" id="faseOptions"
+                  <label class="small mb-1" for="faseAdd">fase</label>
+                  <select class="form-select" name="faseAdd" id="faseAdd" aria-label="Default select example" id="faseOptions"
                     required>
 
                     {% for a in andamento %}
@@ -920,93 +867,69 @@
                   </select>
                 </div>
                 <div class="col-md-3">
-                  <label class="small mb-1" for="inputBirthday">probabilita</label>
-                  <input class="form-control cftr" name="probabilitaAdd" id="inputBirthday" type="text"
-                    placeholder="Enter your birthday" value="" required>
+                  <label class="small mb-1" for="probabilitaAdd">probabilita</label>
+                  <input class="form-control cftr" name="probabilitaAdd" id="probabilitaAdd" type="text" value="" required>
                 </div>
                 <div class="col-md-3">
-                  <label class="small mb-1" for="inputBirthday">inPaf</label>
-                  <input class="form-control cftr" name="inPafAdd" id="inputBirthday" type="text"
-                    placeholder="Enter your birthday" value="">
+                  <label class="small mb-1" for="inPafAdd">inPaf</label>
+                  <input class="form-control cftr" name="inPafAdd" id="inPafAdd" type="text" value="">
                 </div>
-
               </div>
-
-
               <!-- Form Row-->
               <div class="row gx-3 mb-3">
                 <!-- Form Group (phone number)-->
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputLocation">fix</label>
-                  <input class="form-control cftr" name="fixAdd" id="inputLocation" type="number"
-                    placeholder="Enter your location" value="">
-
+                  <label class="small mb-1" for="fixAdd">fix</label>
+                  <input class="form-control cftr" name="fixAdd" id="fixAdd" type="number" value="">
                 </div>
                 <!-- Form Group (birthday)-->
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputPhone">mobile</label>
-                  <input class="form-control cftr" name="mobileAdd" id="inputPhone" type="number"
-                    placeholder="Enter your phone number" value="">
-
+                  <label class="small mb-1" for="mobileAdd">mobile</label>
+                  <input class="form-control cftr" name="mobileAdd" id="mobileAdd" type="number" value="">
                 </div>
                 <div class="col-md-4">
-                  <label class="small mb-1" for="inputBirthday">it</label>
-                  <input class="form-control cftr" name="itAdd" id="inputBirthday" type="text"
-                    placeholder="Enter your birthday" value="">
-
+                  <label class="small mb-1" for="itAdd">it</label>
+                  <input class="form-control cftr" name="itAdd" id="itAdd" type="text" value="">
                 </div>
               </div>
               <div class="row gx-3 mb-3">
                 <!-- Form Group (phone number)-->
                 <div class="col-md-3">
-                  <label class="small mb-1" for="inputPhone">al</label>
-                  <input class="form-control cftr" name="alAdd" id="inputPhone" type="tel"
-                    placeholder="Enter your phone number" value="">
+                  <label class="small mb-1" for="alAdd">al</label>
+                  <input class="form-control cftr" name="alAdd" id="alAdd" type="tel" value="">
                 </div>
                 <!-- Form Group (birthday)-->
                 <div class="col-md-3">
-
-                  <label class="small mb-1" for="inputBirthday">aom</label>
-                  <input class="form-control cftr" name="aomAdd" id="inputBirthday" type="text" value="">
-
+                  <label class="small mb-1" for="aomAdd">aom</label>
+                  <input class="form-control cftr" name="aomAdd" id="aomAdd" type="text" value="">
                 </div>
                 <div class="col-md-3">
-                  <label class="small mb-1" for="inputBirthday">mnp</label>
-                  <input class="form-control cftr" name="mnpAdd" id="inputBirthday" type="text" value="">
+                  <label class="small mb-1" for="mnpAdd">mnp</label>
+                  <input class="form-control cftr" name="mnpAdd" id="mnpAdd" type="text" value="">
                 </div>
                 <div class="col-md-3">
-                  <label class="small mb-1" for="inputPhone">lineeFoniaFixAdd</label>
-                  <input class="form-control cftr" name="lineeFoniaFixAdd" id="inputPhone" type="tel"
-                    value="">
+                  <label class="small mb-1" for="lineeFoniaFixAdd">lineeFoniaFixAdd</label>
+                  <input class="form-control cftr" name="lineeFoniaFixAdd" id="lineeFoniaFixAdd" type="tel" value="">
                 </div>
               </div>
               <div class="row gx-3 mb-3">
                 <!-- Form Group (phone number)-->
-
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputBirthday">fornitore</label>
-                  <input class="form-control cftr" name="fornitoreAdd" id="inputBirthday" type="text" name="birthday"
-                    placeholder="Enter your birthday" value="">
+                  <label class="small mb-1" for="fornitoreAdd">fornitore</label>
+                  <input class="form-control cftr" name="fornitoreAdd" id="fornitoreAdd" type="text" value="">
                 </div>
                 <!-- Form Group (birthday)-->
                 <div class="col-md-6">
-
-                  <label class="small mb-1" for="inputBirthday">noteSpecialista</label>
-                  <input class="form-control cftr" name="noteSpecialistaAdd" id="inputBirthday" type="text"
-                    name="birthday" placeholder="Enter your birthday" value="">
-
+                  <label class="small mb-1" for="noteSpecialistaAdd">noteSpecialista</label>
+                  <input class="form-control cftr" name="noteSpecialistaAdd" id="noteSpecialistaAdd" type="text" value="">
                 </div>
-
               </div>
-
               <!-- Save changes button-->
               <button class="btn btn-primary" type="submit" style="float: left;" id="btnCreaTrattativa">Aggiungi
                 trattativa</button>
               <button class="btn btn-primary" type="button" style="float: right;" id="cleanFormTrattativa"
                 onclick="clean('cftr')">Pulisci
                 tutto</button>
-
-
             </form>
           </div>
         </div>
@@ -1033,9 +956,9 @@
               {% for i in range (0, getIt_len)%}
               <tr data-bs-toggle="modal" data-bs-target="#staticit{{i}}">
                 <td>{% if getIt[i][2]%}{{getIt[i][2]}}{%else%}Non definito{%endif%}</td>
-                <td>{% if getIt[i][4] %} {{getIt[i][4]}} {%else%}Sconosciuto{%endif%}</td>
-                <td>{% if getIt[i][5] %} {{getIt[i][5]}} {%else%}Non indicata {%endif%}</td>
-                <td>{% if getIt[i][6] %} {{getIt[i][6]}} {%else%}Non indicata {%endif%}</td>
+                <td>{% if getIt[i][4] %}{{getIt[i][4]}}{%else%}Sconosciuto{%endif%}</td>
+                <td>{% if getIt[i][5] %}{{getIt[i][5]}}{%else%}Non indicata {%endif%}</td>
+                <td>{% if getIt[i][6] %}{{getIt[i][6]}}{%else%}Non indicata {%endif%}</td>
               </tr>
               <div class="modal fade" id="staticit{{i}}" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticitLabel" aria-hidden="true">
@@ -1190,8 +1113,7 @@
 
 
       <div class=" card card-body mb-2">
-        <input class="form-control mb-2" type="text" id="myInput2" onkeyup="myFunction(2)" onclick="showUp(this,2)"
-          placeholder="Search for names.." title="Type in a name">
+        <input class="form-control mb-2" type="text" id="myInput2" onkeyup="myFunction(2)" onclick="showUp(this,2)" title="Type in a name">
         <ul id="myUL2" class="myUL vertical-scrollable list-group">
           {% if contatti %}
           {% for contatto in contatti%}
@@ -1205,7 +1127,6 @@
           {% endfor %}
           {%endif%}
         </ul>
-
       </div>
     </div>
     <button class="btn btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -1213,7 +1134,6 @@
       <i class="fa-solid fa-address-book"></i>
     </button>
     </p>
-
   </div>
 </div>
 <div>

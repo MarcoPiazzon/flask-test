@@ -174,7 +174,7 @@
                     <div class="row">
                       <div class="col-md-12">
                           <input class="form-control" type="text" id="myInputModify" onkeyup="myFunction(this,0)"
-                              onclick="showUp(this,0)" placeholder="Search for names.." title="Type in a name">
+                              onclick="showUp(this,0)" title="Type in a name">
                       </div>
                   </div>
                     
@@ -192,8 +192,7 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Date</label>
-                    <input class="form-control" name="dataApp" id="dataapp" type="datetime-local" name="birthday"
-                      placeholder="Enter your birthday" value="">
+                    <input class="form-control" name="dataApp" id="dataapp" type="datetime-local" value="">
                   </div>
                 </div>
                 <!-- Save changes button-->
@@ -220,8 +219,7 @@
                 <!-- Form Group (username)-->
                 <div class="mb-3">
                   <label class="small mb-1" for="inputUsername">Titolo</label>
-                  <input class="form-control ls" name="titolo" id="title" type="text" placeholder="Enter your username"
-                    value="" required>
+                  <input class="form-control ls" name="titolo" id="title" type="text" value="" required>
                 </div>
                 <!-- Form Row-->
                 <div class="row gx-3 mb-3">
@@ -248,7 +246,7 @@
                     <div class="row">
                       <div class="col-md-12">
                           <input class="form-control" type="text" id="myInputAdd" onkeyup="myFunction(this,1)"
-                              onclick="showUp(this,1)" placeholder="Search for names.." title="Type in a name" required>
+                              onclick="showUp(this,1)" title="Type in a name" required>
                       </div>
                   </div>
                     
@@ -266,8 +264,7 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Date</label>
-                    <input class="form-control ls" name="dataApp" id="dataAppAdd" type="datetime-local" name="birthday"
-                      placeholder="Enter your birthday" value="" required>
+                    <input class="form-control ls" name="dataApp" id="dataAppAdd" type="datetime-local" value="" required>
                   </div>
                 </div>
                 <!-- Save changes button-->
@@ -276,11 +273,8 @@
               </form>
             </div>
           </div>
-
-
         </div>
       </div>
-
     </section>
   </div>
   <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
@@ -310,15 +304,7 @@
 </div>
 {%endif%}
 
-
-
-
-
 <script>
-  /*const toastLiveExample = document.getElementById('liveToast');
-  co/nst toast = new bootstrap.Toast(toastLiveExample);
-  toast.show();*/
-
   obj = document.getElementsByClassName("ls")
   for (let item of obj) {
 
