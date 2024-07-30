@@ -39,7 +39,7 @@ app.register_blueprint(register_bp, url_prefix='/register')
 
 @app.route('/')
 def main():
-    return redirect(url_for('portafoglio_bp.home', idPort=current_user.idport, id=0))
+    return redirect(url_for('login_bpp.login'))
     
 
 @app.errorhandler(500)    
