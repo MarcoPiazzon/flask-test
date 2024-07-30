@@ -38,6 +38,7 @@ app.register_blueprint(register_bp, url_prefix='/register')
 
 
 @app.route('/')
+@login_required
 def main():
     return redirect(url_for('login_bpp.login'))
     

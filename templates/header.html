@@ -111,6 +111,7 @@
 <body>
 
   <div class="d-flex align-items-stretch">
+{%if current_user.idport %}
     <div class="sidebar py-3" id="sidebar">
       <ul class="list-unstyled">
         <li class="sidebar-list-item"><a class="sidebar-link text-muted"
@@ -156,7 +157,7 @@
 
       </ul>
     </div>
-
+{%endif%}
     {% block content %}
     {% endblock %}
   </div>
