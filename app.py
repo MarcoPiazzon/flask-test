@@ -45,7 +45,7 @@ def main():
 
 @app.errorhandler(500)    
 def error_handler(error):
-        return render_template("/errors/500.html")
+    return render_template("/errors/500.html")
 
 @app.errorhandler(404)
 def error_handler(error):
@@ -53,8 +53,8 @@ def error_handler(error):
 
 @app.errorhandler(401)
 def error_handler(error):
-    return render_template("/errors/401.html")
+    return redirect(url_for('login_bpp.login'))
     
 @app.errorhandler(403)
 def error_handler(error):
-    return render_template("/errors/403.html")
+    return redirect(url_for('login_bpp.login'))
