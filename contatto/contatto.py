@@ -8,6 +8,7 @@ import openpyxl
 from datetime import date
 
 @contatto_bp.route('/<int:id>/', methods=['POST', 'GET'])
+@login_required
 def home(id):
     print("sono nwellA HOM")
     current_contatto = None

@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 @trattativa_bp.route('/<int:id>', methods=['GET', 'POST'])
+@login_required
 def home(id):
     #trattative = conn.execute(
     #   select(trattativa, andamentotrattativa.c.nome, categoria.c.nome).

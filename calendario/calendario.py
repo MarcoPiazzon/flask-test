@@ -9,6 +9,7 @@ from datetime import date
 titolo = "Calendario"
 
 @calendario_bp.route('/')
+@login_required
 def home():
     #events = conn.execute(select(appuntamento, utente.c.nome, utente.c.cognome).select_from(join(appuntamento, utente, appuntamento.c.idUtenteCreazione == utente.c.idUtente))).fetchall()
     events = conn.execute(
