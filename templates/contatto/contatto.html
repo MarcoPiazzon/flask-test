@@ -16,8 +16,6 @@
     #myUL::-webkit-scrollbar {
         display: none;
     }
-</style>
-<style>
     body {
         font-family: 'Open Sans', sans-serif;
     }
@@ -146,6 +144,7 @@
         color: #009688;
     }
 </style>
+
 <div class="page-holder bg-gray-100">
     <div class="container-fluid px-lg-4 px-xl-5">
         <!-- Page Header-->
@@ -615,9 +614,6 @@
     </div>
 </div>
 
-
-
-
 <script>
     function showTrattativaFile(el) {
         el.style.display = "none";
@@ -686,8 +682,8 @@
             }
         });
     });
-</script>
-<script>var currentTab = 0; // Current tab is set to be the first tab (0)
+
+    var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab
 
     function showTab(n) {
@@ -747,5 +743,6 @@
         }
         //... and adds the "active" class on the current step:
         x[n].className += " active";
-    }</script>
+    }
+</script>
 {%endblock%}

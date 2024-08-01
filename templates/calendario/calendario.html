@@ -6,25 +6,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.14/index.min.js"></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <style>
   .event {
-      //shared event css
-  }
-  
-  .greenEvent {
-      background-color:#00FF00;
-  }
-  
-  .redEvent {
-      background-color:#FF0000;
+    //shared event css
   }
 
-  </style>
+  .greenEvent {
+    background-color: #00FF00;
+  }
+
+  .redEvent {
+    background-color: #FF0000;
+  }
+
+  .myUL {
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 200px;
+  }
+
+
+  .hiddenRow {
+    padding: 0 !important;
+  }
+</style>
 <script>
 
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
-  
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
       locale: 'it',
       headerToolbar: {
@@ -39,80 +51,58 @@
       events: [
         {% for event in events %}
           {
-            title: '{{event.titolo}}',
-            start: '{{event.dataapp}}',
-            end: '{{event.dataapp}}',
-            extendedProps: {
-              description: '{{event.variediscussioni}}',
-              preventivodafare: '{{event.preventivodafare}}',
-              dataapp : '{{event.dataapp}}',
-              idappuntamento: '{{event.idappuntamento}}',
-              idutentecreazione: '{{event.idutentecreazione}}',
-              nome: '{{event.nome}}',
-              cognome: '{{event.cognome}}',
-              idtrattativa: '{{event.idtrattativa}}',
-              nomeopportunita: '{{event.nomeopportunita}}'
-            },
-            rendering: 'background'
-          },
-        
-        {% endfor %}
+        title: '{{event.titolo}}',
+        start: '{{event.dataapp}}',
+        end: '{{event.dataapp}}',
+        extendedProps: {
+          description: '{{event.variediscussioni}}',
+          preventivodafare: '{{event.preventivodafare}}',
+          dataapp: '{{event.dataapp}}',
+          idappuntamento: '{{event.idappuntamento}}',
+          idutentecreazione: '{{event.idutentecreazione}}',
+          nome: '{{event.nome}}',
+          cognome: '{{event.cognome}}',
+          idtrattativa: '{{event.idtrattativa}}',
+          nomeopportunita: '{{event.nomeopportunita}}'
+        },
+        rendering: 'background'
+      },
+
+      {% endfor %}
       ],
-      eventClick: function (info) {
-        info.jsEvent.preventDefault(); // don't let the browser navigate
-        console.log(info.event.extendedProps);
-        document.getElementById("modifica").style.display = "block";
-        document.getElementById("crea").style.display = "none";
-        document.getElementById("title").value = info.event.title;
-        if (info.event.extendedProps) {
-          console.log( info.event.extendedProps.dataapp);
-          console.log( info.event.end);
-          console.log(typeof(info.event.extendedProps.dataapp));
-          console.log( info.event.start);
-          document.getElementById("userCreator").innerHTML = "Evento creato da " + info.event.extendedProps.nome + " " + info.event.extendedProps.cognome;
-          document.getElementById("idapp").value = info.event.extendedProps.idappuntamento;
-          document.getElementById("description").value = info.event.extendedProps.description;
-          document.getElementById("preventivoDaFare").value = info.event.extendedProps.preventivodafare;
-          document.getElementById("dataapp").value = info.event.extendedProps.dataapp;
-          document.getElementById("idUtenteCreazione").value = info.event.extendedProps.idUtentecreazione;
-          
-          if(info.event.extendedProps.idtrattativa != "None" && info.event.extendedProps.nomeopportunita != "None"){
-            document.getElementById("idtrattativa").value = info.event.extendedProps.idtrattativa;
+    eventClick: function (info) {
+      info.jsEvent.preventDefault(); // don't let the browser navigate
+      console.log(info.event.extendedProps);
+      document.getElementById("modifica").style.display = "block";
+      document.getElementById("crea").style.display = "none";
+      document.getElementById("title").value = info.event.title;
+      if (info.event.extendedProps) {
+        console.log(info.event.extendedProps.dataapp);
+        console.log(info.event.end);
+        console.log(typeof (info.event.extendedProps.dataapp));
+        console.log(info.event.start);
+        document.getElementById("userCreator").innerHTML = "Evento creato da " + info.event.extendedProps.nome + " " + info.event.extendedProps.cognome;
+        document.getElementById("idapp").value = info.event.extendedProps.idappuntamento;
+        document.getElementById("description").value = info.event.extendedProps.description;
+        document.getElementById("preventivoDaFare").value = info.event.extendedProps.preventivodafare;
+        document.getElementById("dataapp").value = info.event.extendedProps.dataapp;
+        document.getElementById("idUtenteCreazione").value = info.event.extendedProps.idUtentecreazione;
+
+        if (info.event.extendedProps.idtrattativa != "None" && info.event.extendedProps.nomeopportunita != "None") {
+          document.getElementById("idtrattativa").value = info.event.extendedProps.idtrattativa;
           document.getElementById("myInputModify").value = info.event.extendedProps.nomeopportunita;
-  
-          }
-        } else {
-          alert("non esiste");
+
         }
+      } else {
+        alert("non esiste");
       }
+    }
         });
   calendar.render();
-  /*console.log(document.getElementsByClassName("fc-toolbar-chunk"));
-        getButtons = document.getElementsByClassName("fc-toolbar-chunk");
-        console.log(getButtons[0].children[0].children[1].innerHTML = "Oggi")
-        getButtons[2].children[0].children[0].innerHTML = "Anno"
-        getButtons[2].children[0].children[1].innerHTML = "Mese"
-        getButtons[2].children[0].children[2].innerHTML = "Settimana"
-        getButtons[2].children[0].children[3].innerHTML = "Giorno"*/
+
 });
-
-
-
 </script>
 
-<style>
-  .myUL {
-    padding: 0;
-    margin: 0;
-    overflow-y: scroll;
-    max-height: 200px;
-  }
-
-
-  .hiddenRow {
-    padding: 0 !important;
-  }
-</style>
 
 <div class="page-holder bg-gray-100">
   <div class="container-fluid px-lg-4 px-xl-5">
@@ -173,16 +163,16 @@
                   <div class="col">
                     <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" id="myInputModify" onkeyup="myFunction(this,0)"
-                              onclick="showUp(this,0)" title="Type in a name">
+                        <input class="form-control" type="text" id="myInputModify" onkeyup="myFunction(this,0)"
+                          onclick="showUp(this,0)" title="Type in a name">
                       </div>
-                  </div>
-                    
+                    </div>
+
                     <ul id="myULModify" class="myUL vertical-scrollable list-group">
                       {% if trattative%}
                       {% for t in trattative%}
-                      <li class="list-group-item"
-                        onclick="getTrattativa(this,'{{t.idtrattativa}}',0)">{{t.nomeopportunita}}</li>
+                      <li class="list-group-item" onclick="getTrattativa(this,'{{t.idtrattativa}}',0)">
+                        {{t.nomeopportunita}}</li>
                       {% endfor %}
                       {% endif %}
                     </ul>
@@ -197,8 +187,10 @@
                 </div>
                 <!-- Save changes button-->
                 <button class="btn btn-primary" type="submit">Salva le modifiche</button>
-                <button class="btn btn-primary" type="button" id="btnElimina" onclick="elimina()">Elimina appuntamento</button>
-                <button class="btn btn-primary" type="button" id="btnCrea" onclick="crea()" style="float: right;">Aggiungi
+                <button class="btn btn-primary" type="button" id="btnElimina" onclick="elimina()">Elimina
+                  appuntamento</button>
+                <button class="btn btn-primary" type="button" id="btnCrea" onclick="crea()"
+                  style="float: right;">Aggiungi
                   appuntamento</button>
               </form>
             </div>
@@ -245,16 +237,16 @@
                   <div class="col">
                     <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" id="myInputAdd" onkeyup="myFunction(this,1)"
-                              onclick="showUp(this,1)" title="Type in a name" required>
+                        <input class="form-control" type="text" id="myInputAdd" onkeyup="myFunction(this,1)"
+                          onclick="showUp(this,1)" title="Type in a name" required>
                       </div>
-                  </div>
-                    
+                    </div>
+
                     <ul id="myULAdd" class="myUL vertical-scrollable list-group">
                       {% if trattative%}
                       {% for t in trattative%}
-                      <li class="list-group-item"
-                        onclick="getTrattativa(this,'{{t.idtrattativa}}',1)">{{t.nomeopportunita}}</li>
+                      <li class="list-group-item" onclick="getTrattativa(this,'{{t.idtrattativa}}',1)">
+                        {{t.nomeopportunita}}</li>
                       {% endfor %}
                       {% endif %}
                     </ul>
@@ -264,7 +256,8 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Date</label>
-                    <input class="form-control ls" name="dataApp" id="dataAppAdd" type="datetime-local" value="" required>
+                    <input class="form-control ls" name="dataApp" id="dataAppAdd" type="datetime-local" value=""
+                      required>
                   </div>
                 </div>
                 <!-- Save changes button-->
@@ -323,10 +316,8 @@
     }
   })
 
-
-
   function getTrattativa(el, id, s) {
-    
+
     console.log(el);
 
     switch (s) {
@@ -348,12 +339,12 @@
 
   }
 
-  function crea(){
+  function crea() {
     document.getElementById("modifica").style.display = "none";
     document.getElementById("crea").style.display = "block";
   }
 
-  function elimina(){
+  function elimina() {
     Swal.fire({
       title: "Sei sicuro?",
       text: "Una volta eliminata, non potrà essere ripristinata!",
@@ -374,38 +365,35 @@
     });
   }
 
-</script>
+  function showUp(el, s) {
+    el.value = "";
+    name = "myUL"
+    if (s === 0) name += "Modify"; else name += "Add"
+    document.getElementById(name).style.display = "block";
+  }
 
-<script>
-      function showUp(el,s) {
-        el.value = "";
-        name = "myUL"
-        if(s === 0) name += "Modify"; else name += "Add"
-        document.getElementById(name).style.display = "block";
+  function myFunction(el, s) {
+    name = "myUL"
+    if (s === 0)
+      name += "Modify"
+    else
+      name += "Add"
+    var input, filter, ul, li, i, txtValue;
+    filter = el.value.toUpperCase();
+    console.log(name)
+    ul = document.getElementById(name);
+
+    input = ul.getElementsByTagName("li");
+    for (i = 0; i < input.length; i++) {
+
+      txtValue = input[i].innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        input[i].style.display = "";
+      } else {
+        input[i].style.display = "none";
+      }
     }
-
-    function myFunction(el, s) {
-      name = "myUL"
-      if(s === 0)
-        name += "Modify"
-      else 
-        name += "Add" 
-      var input, filter, ul, li, i, txtValue;
-        filter = el.value.toUpperCase();
-        console.log(name)
-        ul = document.getElementById(name);
-
-        input = ul.getElementsByTagName("li");
-        for (i = 0; i < input.length; i++) {
-
-            txtValue = input[i].innerHTML;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                input[i].style.display = "";
-            } else {
-                input[i].style.display = "none";
-            }
-        }
-    }
+  }
 
 </script>
 

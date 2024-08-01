@@ -3,47 +3,6 @@
 {% block content %}
 
 <style>
-  .myUL {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    overflow-y: scroll;
-    max-height: 200px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .myUL2 {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    max-height: 500px;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  #myUL li a {
-    border: 1px solid #ddd;
-    margin-top: -1px;
-    /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-  }
-
-  #myUL li a:hover:not(.header) {
-    background-color: #eee;
-  }
-
-  .hiddenRow {
-    padding: 0 !important;
-  }
-</style>
-<style>
   body {
     font-family: 'Open Sans', sans-serif;
   }
@@ -178,6 +137,46 @@
     right: 20px;
     z-index: 9999;
   }
+
+  .myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 200px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .myUL2 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 500px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
+
+  #myUL li a:hover:not(.header) {
+    background-color: #eee;
+  }
+
+  .hiddenRow {
+    padding: 0 !important;
+  }
 </style>
 
 <div class="page-holder bg-gray-100">
@@ -193,8 +192,7 @@
             <div class="input-group ">
               <div class="col">
                 <input class="form-control" type="text" id="myInput" onkeyup="myFunction(0)" onclick="showUp(this,0)"
-                  placeholder="Cerca un cliente"
-                  value="{%if current_cliente %}{{current_cliente[5]}} {%endif%}">
+                  placeholder="Cerca un cliente" value="{%if current_cliente %}{{current_cliente[5]}} {%endif%}">
               </div>
             </div>
           </div>
@@ -228,7 +226,8 @@
                   <!-- Form Group (first name)-->
                   <div class="col-md-4">
                     <label class="small mb-1" for="ragioneSociale">Ragione Sociale</label>
-                    <input class="form-control" name="ragioneSociale" id="ragioneSociale" type="text" value="{{current_cliente[5]}}">
+                    <input class="form-control" name="ragioneSociale" id="ragioneSociale" type="text"
+                      value="{{current_cliente[5]}}">
                   </div>
                   <div class="col-md-2">
                     <label class="small mb-1" for="cf">Cf</label>
@@ -241,11 +240,13 @@
                   </div>
                   <div class="col-md-2">
                     <label class="small mb-1" for="dipendenti">Numero dipendenti</label>
-                    <input class="form-control" name="dipendenti" id="dipendenti" type="text" value="{{current_cliente[20]}}">
+                    <input class="form-control" name="dipendenti" id="dipendenti" type="text"
+                      value="{{current_cliente[20]}}">
                   </div>
                   <div class="col-md-2">
                     <label class="small mb-1" for="nLineeTot">Numero linee totali</label>
-                    <input class="form-control" name="nLineeTot" id="nLineeTot" type="text" value="{{current_cliente[13]}}">
+                    <input class="form-control" name="nLineeTot" id="nLineeTot" type="text"
+                      value="{{current_cliente[13]}}">
                   </div>
 
                 </div>
@@ -254,16 +255,19 @@
                   <!-- Form Group (organization name)-->
                   <div class="col-md-5">
                     <label class="small mb-1" for="indirizzo">Indirizzo</label>
-                    <input class="form-control" name="indirizzo" id="indirizzo" type="text" value="{{current_cliente[7]}}">
+                    <input class="form-control" name="indirizzo" id="indirizzo" type="text"
+                      value="{{current_cliente[7]}}">
                   </div>
                   <!-- Form Group (location)-->
                   <div class="col-md-2">
                     <label class="small mb-1" for="capPrincipale">CAP</label>
-                    <input class="form-control" name="capPrincipale" id="capPrincipale" type="text" value="{{current_cliente[9]}}">
+                    <input class="form-control" name="capPrincipale" id="capPrincipale" type="text"
+                      value="{{current_cliente[9]}}">
                   </div>
                   <div class="col-md-2">
                     <label class="small mb-1" for="comunePrincipale">Comune</label>
-                    <input class="form-control" name="comunePrincipale" id="comunePrincipale" type="text" value="{{current_cliente[10]}}">
+                    <input class="form-control" name="comunePrincipale" id="comunePrincipale" type="text"
+                      value="{{current_cliente[10]}}">
                   </div>
                   <div class="col-lg-3">
                     <label class="small mb-1" for="presidio">Presidio</label>
@@ -496,8 +500,8 @@
                                 </div>
                                 <div class="col-md-6">
                                   <label class="small mb-1" for="dataChiusuraModify">dataChiusura</label>
-                                  <input class="form-control" name="dataChiusuraModify" id="dataChiusuraModify" type="date"
-                                    value="{% if trattative[i][18] %}{{trattative[i][18]}}{%endif%}">
+                                  <input class="form-control" name="dataChiusuraModify" id="dataChiusuraModify"
+                                    type="date" value="{% if trattative[i][18] %}{{trattative[i][18]}}{%endif%}">
                                 </div>
                               </div>
                               <!-- Form Row-->
@@ -797,7 +801,8 @@
               <div class="row gx-3 mb-3">
                 <div class="col-md-4">
                   <label class="small mb-1" for="codiceCtrDigitaliAdd">codiceCtrDigitali</label>
-                  <input class="form-control cftr" name="codiceCtrDigitaliAdd" id="codiceCtrDigitaliAdd" type="text" value="">
+                  <input class="form-control cftr" name="codiceCtrDigitaliAdd" id="codiceCtrDigitaliAdd" type="text"
+                    value="">
                 </div>
                 <div class="col-md-4">
                   <label class="small mb-1" for="codiceSalesHubAdd">codiceSalesHub</label>
@@ -813,7 +818,8 @@
                 <!-- Form Group (first name)-->
                 <div class="col-md-6">
                   <label class="small mb-1" for="nomeOpportunitaAdd">nomeOpportunita</label>
-                  <input class="form-control cftr" name="nomeOpportunitaAdd" id="nomeOpportunitaAdd" type="text" value="" required>
+                  <input class="form-control cftr" name="nomeOpportunitaAdd" id="nomeOpportunitaAdd" type="text"
+                    value="" required>
                 </div>
                 <!-- Form Group (last name)-->
                 <div class="col-md-6">
@@ -826,11 +832,13 @@
                 <!-- Form Group (location)-->
                 <div class="col-md-6">
                   <label class="small mb-1" for="dataCreazioneOpportunitaAdd">dataCreazioneOpportunita</label>
-                  <input class="form-control cftr" name="dataCreazioneOpportunitaAdd" id="dataCreazioneOpportunitaAdd" type="date" value="" required>
+                  <input class="form-control cftr" name="dataCreazioneOpportunitaAdd" id="dataCreazioneOpportunitaAdd"
+                    type="date" value="" required>
                 </div>
                 <div class="col-md-6">
                   <label class="small mb-1" for="dataChiusuraAdd">dataChiusura</label>
-                  <input class="form-control cftr" name="dataChiusuraAdd" id="dataChiusuraAdd" type="date" value="" required>
+                  <input class="form-control cftr" name="dataChiusuraAdd" id="dataChiusuraAdd" type="date" value=""
+                    required>
                 </div>
               </div>
               <!-- Form Row-->
@@ -838,8 +846,8 @@
                 <!-- Form Group (phone number)-->
                 <div class="col-md-3">
                   <label class="small mb-1" for="faseAdd">fase</label>
-                  <select class="form-select" name="faseAdd" id="faseAdd" aria-label="Default select example" id="faseOptions"
-                    required>
+                  <select class="form-select" name="faseAdd" id="faseAdd" aria-label="Default select example"
+                    id="faseOptions" required>
 
                     {% for a in andamento %}
 
@@ -861,7 +869,8 @@
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="probabilitaAdd">probabilita</label>
-                  <input class="form-control cftr" name="probabilitaAdd" id="probabilitaAdd" type="text" value="" required>
+                  <input class="form-control cftr" name="probabilitaAdd" id="probabilitaAdd" type="text" value=""
+                    required>
                 </div>
                 <div class="col-md-3">
                   <label class="small mb-1" for="inPafAdd">inPaf</label>
@@ -914,7 +923,8 @@
                 <!-- Form Group (birthday)-->
                 <div class="col-md-6">
                   <label class="small mb-1" for="noteSpecialistaAdd">noteSpecialista</label>
-                  <input class="form-control cftr" name="noteSpecialistaAdd" id="noteSpecialistaAdd" type="text" value="">
+                  <input class="form-control cftr" name="noteSpecialistaAdd" id="noteSpecialistaAdd" type="text"
+                    value="">
                 </div>
               </div>
               <!-- Save changes button-->
@@ -995,8 +1005,8 @@
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                               <label class="small mb-1" for="dataScadenzaModify">Data Scadenza</label>
-                              <input class="form-control cftr" name="dataScadenzaModify" id="dataScadenzaModify" type="date"
-                                value="{{getIt[i][6]}}">
+                              <input class="form-control cftr" name="dataScadenzaModify" id="dataScadenzaModify"
+                                type="date" value="{{getIt[i][6]}}">
 
                             </div>
                           </div>
@@ -1005,13 +1015,13 @@
                             <!-- Da mettere type float -->
                             <div class="col-md-6">
                               <label class="small mb-1" for="canoneAnnuoModify">Canone Annuo</label>
-                              <input class="form-control cftr" name="canoneAnnuoModify" id="canoneAnnuoModify" type="number"
-                                value="{{getIt[i][7]}}" required>
+                              <input class="form-control cftr" name="canoneAnnuoModify" id="canoneAnnuoModify"
+                                type="number" value="{{getIt[i][7]}}" required>
                             </div>
                             <div class="col-md-6">
                               <label class="small mb-1" for="canoneMeseModify">Canone Mese</label>
-                              <input class="form-control cftr" name="canoneMeseModify" id="canoneMeseModify" type="number"
-                                value="{{getIt[i][8]}}" required>
+                              <input class="form-control cftr" name="canoneMeseModify" id="canoneMeseModify"
+                                type="number" value="{{getIt[i][8]}}" required>
                             </div>
                           </div>
 
@@ -1066,12 +1076,14 @@
               <!-- Form Group (first name)-->
               <div class="col-md-6">
                 <label class="small mb-1" for="dataAttivazioneAdd">Data Attivazione</label>
-                <input class="form-control cfit" name="dataAttivazioneAdd" id="dataAttivazioneAdd" type="date" value="" required>
+                <input class="form-control cfit" name="dataAttivazioneAdd" id="dataAttivazioneAdd" type="date" value=""
+                  required>
               </div>
               <!-- Form Group (last name)-->
               <div class="col-md-6">
                 <label class="small mb-1" for="dataScadenzaAdd">Data Scadenza</label>
-                <input class="form-control cfit" name="dataScadenzaAdd" id="dataScadenzaAdd" type="date" value="" required>
+                <input class="form-control cfit" name="dataScadenzaAdd" id="dataScadenzaAdd" type="date" value=""
+                  required>
 
               </div>
             </div>
@@ -1106,7 +1118,8 @@
 
 
       <div class=" card card-body mb-2">
-        <input class="form-control mb-2" type="text" id="myInput2" onkeyup="myFunction(2)" onclick="showUp(this,2)" title="Type in a name">
+        <input class="form-control mb-2" type="text" id="myInput2" onkeyup="myFunction(2)" onclick="showUp(this,2)"
+          title="Type in a name">
         <ul id="myUL2" class="myUL vertical-scrollable list-group">
           {% if contatti %}
           {% for contatto in contatti%}
@@ -1192,7 +1205,7 @@
   function showUp(el, val) {
     el.value = "";
     namemyUL = "myUL";
-    
+
     if (val == 2)
       namemyUL += "2"
     document.getElementById(namemyUL).style.display = "block";
@@ -1224,9 +1237,9 @@
   function getName(el, val, contatto) {
     console.log(el);
     console.log(el.previousElementSibling);
-    
+
     idsearch = el.previousElementSibling.value.trim();
-    alert("idsearc: "+ idsearch);
+    alert("idsearc: " + idsearch);
     nameInput = "myInput";
     namemyUL = "myUL";
     if (val == 2) {
@@ -1242,17 +1255,6 @@
     */
   }
 
-  console.log(document.getElementById("myInput").value);
-  if (document.getElementById("myInput").value === "") {
-    document.getElementById("myUL").style.display = "block";
-  } else {
-    document.getElementById("myUL").style.display = "none";
-  }
-
-</script>
-
-
-<script>
   function setFase(el) {
     let s = document.getElementById("faseOptions");
     let selected = s.options[s.selectedIndex].value;
@@ -1360,8 +1362,14 @@
     setLocal('cfcl');
   });
 
-</script>
-<script>var currentTab = 0; // Current tab is set to be the first tab (0)
+  console.log(document.getElementById("myInput").value);
+  if (document.getElementById("myInput").value === "") {
+    document.getElementById("myUL").style.display = "block";
+  } else {
+    document.getElementById("myUL").style.display = "none";
+  }
+
+  var currentTab = 0; // Current tab is set to be the first tab (0)
   showTab(currentTab); // Display the current tab
 
   function showTab(n) {
