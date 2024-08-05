@@ -93,14 +93,18 @@ def goToPortafoglio(id):
     # chiamata da fare successivamente quando verrà cambiata l'interfaccia grafica, permette di ricevere tutte le trattative dato un cliente
     return redirect(url_for('.home',idPort = id, id = 0))
 
-@portafoglio_bp.route('/getCliente/<int:id>', methods=['POST'])
+@portafoglio_bp.route('/getCliente', methods=['POST'])
 @login_required
-def getCliente(id):
-    print("idcliente")
-    print(id)
-    print("sono qui")
-
-    return redirect(url_for('.home',idPort = current_user.idport, id = id))
+def getCliente():
+    print("entro in getCliente")
+    print(request.form)
+    print(type(request.form['idSearch']))
+    idPort = request.form['idPort']
+    id = 0
+    if (request.form['idSearch'] != ''):
+        id=request.form['idSearch']
+    current_user.idport = idPort
+    return redirect(url_for('.home',idPort = idPort, id = id))
 
 @portafoglio_bp.route('/remove/<int:id>', methods=['POST'])
 @login_required

@@ -190,9 +190,18 @@
         <div class="container px-4 mt-4">
           <div class="row mb-2">
             <div class="input-group ">
-              <div class="col">
+              <div class="col-11">
                 <input class="form-control" type="text" id="myInput" onkeyup="myFunction(0)" onclick="showUp(this,0)"
-                  placeholder="Cerca un cliente" value="{%if current_cliente %}{{current_cliente[5]}} {%endif%}">
+                  placeholder="Cerca un cliente"
+                  value="{%if current_cliente %}{{current_cliente[5]}} {%endif%}">
+              </div>
+              <div class="col-1">
+
+                <form action="/portafoglio/getCliente" method="POST">
+                  <input type="hidden" name="idPort" value="{{idPort}}">
+                  <input type="hidden" name="idSearch" id="idSearch" value="{%if current_cliente %} {{current_cliente[0]}} {%endif%}">
+                  <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
               </div>
             </div>
           </div>
@@ -1239,20 +1248,20 @@
     console.log(el.previousElementSibling);
 
     idsearch = el.previousElementSibling.value.trim();
-    alert("idsearc: " + idsearch);
+    //alert("idsearc: " + idsearch);
     nameInput = "myInput";
     namemyUL = "myUL";
     if (val == 2) {
       nameInput += "2";
       namemyUL += "2";
     }
-    var xhr = new XMLHttpRequest();
+    /*var xhr = new XMLHttpRequest();
     xhr.open("POST", '/portafoglio/getCliente/' + idsearch, true);
-    xhr.send();
-    /*document.getElementById("idSearch").value = el.previousElementSibling.value.trim();
+    xhr.send();*/
+    document.getElementById("idSearch").value = el.previousElementSibling.value.trim();
     document.getElementById(nameInput).value = el.innerHTML.trim();
     document.getElementById(namemyUL).style.display = "none";
-    */
+    
   }
 
   function setFase(el) {
