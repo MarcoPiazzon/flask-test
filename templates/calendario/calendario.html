@@ -85,7 +85,7 @@
         document.getElementById("idapp").value = info.event.extendedProps.idappuntamento;
         document.getElementById("description").value = info.event.extendedProps.description;
         document.getElementById("preventivoDaFare").value = info.event.extendedProps.preventivodafare;
-        document.getElementById("dataapp").value = info.event.extendedProps.dataapp;
+        //document.getElementById("dataapp").value = info.event.extendedProps.dataapp;
         document.getElementById("idUtenteCreazione").value = info.event.extendedProps.idUtentecreazione;
 
         if (info.event.extendedProps.idtrattativa != "None" && info.event.extendedProps.nomeopportunita != "None") {
@@ -182,7 +182,7 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-4">
                     <label class="small mb-1" for="inputBirthday">Date</label>
-                    <input class="form-control" name="dataApp" id="dataapp" type="datetime-local" value="">
+                    <input class="form-control" name="dataApp" id="dataapp" type="datetime-local" value="" required>
                   </div>
                 </div>
                 <!-- Save changes button-->

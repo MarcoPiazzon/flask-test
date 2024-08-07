@@ -26,7 +26,7 @@ def home():
         #SELECT * FROM trattativa join cliente on trattativa.idCliente = cliente.idCliente where cliente.idPortafoglio = 6
         #trattative = conn.execute(select(trattativa)).fetchall()
         
-        trattative = conn.execute(select(trattativa).select_from(join(trattativa,cliente, trattativa.c.idcliente == cliente.c.idcliente)).where(cliente.c.idportafoglio==current_user.idport)).fetchall()
+        trattative = conn.execute(select(trattativa).select_from(join(trattativa,cliente, trattativa.c.idcliente == cliente.c.idcliente)).where(cliente.c.idportafoglio==current_user.idport).order_by(trattativa.c.nomeopportunita)).fetchall()
         
         print(trattativa)
     except Exception as error:

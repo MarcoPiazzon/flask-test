@@ -154,7 +154,7 @@ def modifyTrattativa(id):
                 fornitore = fornitore
             )
         )
-        
+        conn.commit()
         print("tutto bvene")
     except Exception as error:
         print("rip")
