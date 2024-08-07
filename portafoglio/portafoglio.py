@@ -247,7 +247,7 @@ def modifyTrattativa(id):
         zona = request.form['zonaModify'] 
         tipo = request.form['tipoModify']
         nomeOpportunita = request.form['nomeOpportunitaModify']
-        dataCreazioneOpportunita = request.form['dataCreazioneOpportunitaModify']
+        dataCreazioneOpportunita = checkDate(request.form['dataCreazioneOpportunitaModify'])
         
         fix = checkNull(request.form['fixModify'])
         mobile = checkNull(request.form['mobileModify'])
@@ -259,7 +259,7 @@ def modifyTrattativa(id):
         mnp = checkNull(request.form['mnpModify'])
         
         al = checkNull(request.form['alModify'])
-        dataChiusura = request.form['dataChiusuraModify']
+        dataChiusura = checkDate(request.form['dataChiusuraModify'])
         fase = request.form['faseModify']
         noteSpecialista = request.form['noteSpecialistaModify']
         probabilita = checkNull(request.form['probabilitaModify'])

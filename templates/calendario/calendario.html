@@ -322,15 +322,15 @@
 
     switch (s) {
       case 0:
-        alert(id)
+        //alert(id)
         document.getElementById("idtrattativa").value = id;
         console.log(document.getElementById("idtrattativa"));
-        document.getElementById("myInputModify").value = el.innerHTML;
+        document.getElementById("myInputModify").value = el.innerHTML.trim();
         document.getElementById("myULModify").style.display = "none";
         break;
       case 1:
-        alert(id)
-        document.getElementById("myInputAdd").value = el.innerHTML;
+        //alert(id)
+        document.getElementById("myInputAdd").value = el.innerHTML.trim();
         document.getElementById("myULAdd").style.display = "none";
         document.getElementById("idtrattativaAdd").value = id;
         console.log(document.getElementById("idtrattativaAdd"));
